@@ -43,7 +43,7 @@ if (!class_exists('Ultimate_Author_Box')) {
             add_action('wp_enqueue_scripts', array($this, 'uab_register_frontend_assets'));
             /* Register Ultimate Author Box Dashboard Menu */
             add_action('admin_menu', array($this, 'uab_menu'));
-            
+
             add_action('show_user_profile', array($this, 'uab_profile_fields'));
             add_action('edit_user_profile', array($this, 'uab_profile_fields'));
             /* add_action( 'wp_ajax_save_tab_option', array( $this, 'uab_profile_fields' ) ); */
@@ -116,7 +116,6 @@ if (!class_exists('Ultimate_Author_Box')) {
             defined('UAB_VERSION') or define('UAB_VERSION', '2.1');
 
 
-            include(UAB_PATH . 'LinkedinProfile/uab_linkedin_class.php');
         }
 
         /* Register Text Domain */
