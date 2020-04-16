@@ -20,209 +20,52 @@ if (isset($_GET['cache-message'])) { ?>
         <p><?php esc_html_e('Cache Cleared successfully', 'ultimate-author-box'); ?></p></div>
 <?php }
 
-	?>
-	<div class="uab-settings-header-wrapper-main">
-		<div class="uab-settings-header-wrapper-main-wrap uab-clearfix">
-			<div class="uab-settings-header-title">
-				<div class="uab-title-menu"><?php _e('Ultimate Author Box');?></div>
-				<div class="uab-version-wrap">
-					<span>Version <?php _e(UAB_VERSION);?></span>
-				</div>
-			</div>
-			<div class="uab-header-social-link">
-				<p class="uab-follow-us">Follow us for new updates</p>
-				<iframe src="//www.facebook.com/plugins/follow?href=https%3A%2F%2Fwww.facebook.com%2FAccessPressThemes&amp;layout=button&amp;show_faces=true&amp;colorscheme=light&amp;width=450&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:px; height:20px;" allowTransparency="true"></iframe>
-				<iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-follow-button twitter-follow-button-rendered" style="position: static; visibility: visible; width:px; height: 20px;" title="Twitter Follow Button" src="http://platform.twitter.com/widgets/follow_button.c4fd2bd4aa9a68a5c8431a3d60ef56ae.en.html#dnt=false&amp;id=twitter-widget-0&amp;lang=en&amp;screen_name=apthemes&amp;show_count=false&amp;show_screen_name=true&amp;size=m&amp;time=1484717853708" data-screen-name="accesspressthemes"></iframe>
-			</div>
-		</div>
-	</div><!--End of uab-settings-header-wrapper-main-->
-	<div class="uab-setting-page-wrapper">
-		<form method="post" action="<?php echo admin_url( 'admin-post.php' ); ?>">
-			<input type="hidden" name="action" value="uab_settings_save_action"/>
-			<div class="uab-tabs-wrap">
-				<ul class="uab-tabs">
-					<li class="tab-link uab-general-setting-tab current" data-tab="tab-1"><?php _e( 'General Settings', 'ultimate-author-box' ); ?></li>
-					<li class="tab-link uab-permission-setting-tab" data-tab="tab-4"><?php _e( 'Permission Settings', 'ultimate-author-box' ); ?></li>
-					<li class="tab-link uab-twitter-setting-tab" data-tab="tab-2"><?php _e( 'Twitter Feeds Settings', 'ultimate-author-box' ); ?></li>
-					<li class="tab-link uab-layout-setting-tab" data-tab="tab-3"><?php _e( 'Layout Settings', 'ultimate-author-box' ); ?></li>
-					<li class="tab-link uab-custom-setting-tab" data-tab="tab-5"><?php _e( 'Custom Settings', 'ultimate-author-box' ); ?></li>
-				</ul>
-			</div>
-			<div id="tab-5" class="uab-tab-content">
-				<div class="uab-settings-header-wrapper">
-					<h3><?php _e('Custom Theme Settings');?></h3>
-				</div><!--End of uab-settings-header-wrapper-->
-				<div class="uab-custom-settings-content-wrapper">
-					<div class="uab-fields uab-content-wrapper">
-						<div class="uab-label-info-wrap">
-							<label for="uab-tab-type-selection"><?php _e( 'Select Template', 'ultimate-author-box' ); ?></label>
-						</div>
-						<select class="uab-select-input1 uab-custom-template"  name="uab_custom_template">
-							<option  value="uab-template-1" <?php if ( $uab_general_settings['uab_custom_template']=='uab-template-1' ) echo 'selected'; ?>><?php _e( 'Template 1', 'ultimate-author-box' ); ?></option>
-							<option  value="uab-template-2" <?php if ( $uab_general_settings['uab_custom_template']=='uab-template-2' ) echo 'selected'; ?>><?php _e( 'Template 2', 'ultimate-author-box' ); ?></option>
-							<option  value="uab-template-3" <?php if ( $uab_general_settings['uab_custom_template']=='uab-template-3' ) echo 'selected'; ?>><?php _e( 'Template 3', 'ultimate-author-box' ); ?></option>
-							<option  value="uab-template-4" <?php if ( $uab_general_settings['uab_custom_template']=='uab-template-4' ) echo 'selected'; ?>><?php _e( 'Template 4', 'ultimate-author-box' ); ?></option>
-							<option  value="uab-template-5" <?php if ( $uab_general_settings['uab_custom_template']=='uab-template-5' ) echo 'selected'; ?>><?php _e( 'Template 5', 'ultimate-author-box' ); ?></option>
-							<option  value="uab-template-6" <?php if ( $uab_general_settings['uab_custom_template']=='uab-template-6' ) echo 'selected'; ?>><?php _e( 'Template 6', 'ultimate-author-box' ); ?></option>
-							<option  value="uab-template-7" <?php if ( $uab_general_settings['uab_custom_template']=='uab-template-7' ) echo 'selected'; ?>><?php _e( 'Template 7', 'ultimate-author-box' ); ?></option>
-							<option  value="uab-template-8" <?php if ( $uab_general_settings['uab_custom_template']=='uab-template-8' ) echo 'selected'; ?>><?php _e( 'Template 8', 'ultimate-author-box' ); ?></option>
-							<option  value="uab-template-9" <?php if ( $uab_general_settings['uab_custom_template']=='uab-template-9' ) echo 'selected'; ?>><?php _e( 'Template 9', 'ultimate-author-box' ); ?></option>
-							<option  value="uab-template-10" <?php if ( $uab_general_settings['uab_custom_template']=='uab-template-10' ) echo 'selected'; ?>><?php _e( 'Template 10', 'ultimate-author-box' ); ?></option>
-							<option  value="uab-template-11" <?php if ( $uab_general_settings['uab_custom_template']=='uab-template-11' ) echo 'selected'; ?>><?php _e( 'Template 11', 'ultimate-author-box' ); ?></option>
-							<option  value="uab-template-12" <?php if ( $uab_general_settings['uab_custom_template']=='uab-template-12' ) echo 'selected'; ?>><?php _e( 'Template 12', 'ultimate-author-box' ); ?></option>
-							<option  value="uab-template-13" <?php if ( $uab_general_settings['uab_custom_template']=='uab-template-13' ) echo 'selected'; ?>><?php _e( 'Template 13', 'ultimate-author-box' ); ?></option>
-							<option  value="uab-template-14" <?php if ( $uab_general_settings['uab_custom_template']=='uab-template-14' ) echo 'selected'; ?>><?php _e( 'Template 14', 'ultimate-author-box' ); ?></option>
-							<option  value="uab-template-15" <?php if ( $uab_general_settings['uab_custom_template']=='uab-template-15' ) echo 'selected'; ?>><?php _e( 'Template 15', 'ultimate-author-box' ); ?></option>
-							<option  value="uab-template-16" <?php if ( $uab_general_settings['uab_custom_template']=='uab-template-16' ) echo 'selected'; ?>><?php _e( 'Template 16', 'ultimate-author-box' ); ?></option>
-							<option  value="uab-template-17" <?php if ( $uab_general_settings['uab_custom_template']=='uab-template-17' ) echo 'selected'; ?>><?php _e( 'Template 17', 'ultimate-author-box' ); ?></option>
-							<option  value="uab-template-18" <?php if ( $uab_general_settings['uab_custom_template']=='uab-template-18' ) echo 'selected'; ?>><?php _e( 'Template 18', 'ultimate-author-box' ); ?></option>
-							<option  value="uab-template-19" <?php if ( $uab_general_settings['uab_custom_template']=='uab-template-19' ) echo 'selected'; ?>><?php _e( 'Template 19', 'ultimate-author-box' ); ?></option>
-						</select>
-					</div>
-					<div class="uab-template-image-preview">
-						<?php 
-						$uab_image_source='uab-template-1.PNG';
-						switch($uab_general_settings['uab_custom_template']){
-							case 'uab-template-1':
-							$uab_image_source='uab-template-1.PNG';
-							break;
-							case 'uab-template-2':
-							$uab_image_source='uab-template-2.PNG';
-							break;
-							case 'uab-template-3':
-							$uab_image_source='uab-template-3.PNG';
-							break;
-							case 'uab-template-4':
-							$uab_image_source='uab-template-4.PNG';
-							break;
-							case 'uab-template-5':
-							$uab_image_source='uab-template-5.PNG';
-							break;
-							case 'uab-template-6':
-							$uab_image_source='uab-template-6.PNG';
-							break;
-							case 'uab-template-7':
-							$uab_image_source='uab-template-7.PNG';
-							break;
-							case 'uab-template-8':
-							$uab_image_source='uab-template-8.PNG';
-							break;
-							case 'uab-template-9':
-							$uab_image_source='uab-template-9.PNG';
-							break;
-							case 'uab-template-10':
-							$uab_image_source='uab-template-10.PNG';
-							break;
-							case 'uab-template-11':
-							$uab_image_source='uab-template-11.PNG';
-							break;
-							case 'uab-template-12':
-							$uab_image_source='uab-template-12.PNG';
-							break;
-							case 'uab-template-13':
-							$uab_image_source='uab-template-13.PNG';
-							break;
-							case 'uab-template-14':
-							$uab_image_source='uab-template-14.PNG';
-							break;
-							case 'uab-template-15':
-							$uab_image_source='uab-template-15.PNG';
-							break;
-							case 'uab-template-16':
-							$uab_image_source='uab-template-16.PNG';
-							break;
-							case 'uab-template-17':
-							$uab_image_source='uab-template-17.PNG';
-							break;
-							case 'uab-template-18':
-							$uab_image_source='uab-template-18.PNG';
-							break;
-							case 'uab-template-19':
-							$uab_image_source='uab-template-19.PNG';
-							break;
-							default:
-							$uab_image_source='uab-template-1.PNG';
-						}							
-						?>
-						<img src="<?php esc_attr_e(UAB_IMG_DIR); ?>/uab-template-screenshorts/<?php esc_attr_e($uab_image_source); ?>" width="100%"/>
-					</div>
-					<?php //echo $uab_general_settings['uab_custom_template'];?>
-					<div class="uab-fields uab-content-wrapper uab-primary-color uab-custom-template-option">
-						<div class="uab-label-info-wrap">
-							<label><?php _e('Primary Color','ultimate-author-box');?></label>
-						</div>
-						<div>
-							<input type="text" name="uab_primary_color" data-alpha="true" value="<?php esc_attr_e(isset($uab_general_settings['uab_primary_color'])?$uab_general_settings['uab_primary_color']:'');?>" class="uab-color-picker uab-primary-color-picker" >
-						</div>
-					</div>
-					<div class="uab-fields uab-content-wrapper uab-secondary-color uab-custom-template-option" 
+?>
+<div class="uab-settings-header-wrapper-main">
+    <div class="uab-settings-header-wrapper-main-wrap uab-clearfix">
+        <div class="uab-settings-header-title">
+            <div class="uab-title-menu"><?php _e('Ultimate Author Box'); ?></div>
+            <div class="uab-version-wrap">
+                <span>Version <?php _e(UAB_VERSION); ?></span>
+            </div>
+        </div>
+    </div>
+</div><!--End of uab-settings-header-wrapper-main-->
+<div class="uab-setting-page-wrapper">
+    <form method="post" action="<?php echo admin_url('admin-post.php'); ?>">
+        <input type="hidden" name="action" value="uab_settings_save_action"/>
+        <div class="uab-tabs-wrap">
+            <ul class="uab-tabs">
+                <li class="tab-link uab-general-setting-tab current"
+                    data-tab="tab-1"><?php _e('General Settings', 'ultimate-author-box'); ?></li>
+                <li class="tab-link uab-permission-setting-tab"
+                    data-tab="tab-4"><?php _e('Permission Settings', 'ultimate-author-box'); ?></li>
+            </ul>
+        </div>
 
-					<?php if(!(
-						$uab_general_settings['uab_custom_template']=='uab-template-3'||
-						$uab_general_settings['uab_custom_template']=='uab-template-5'||
-						$uab_general_settings['uab_custom_template']=='uab-template-7'||
-						$uab_general_settings['uab_custom_template']=='uab-template-11'||
-						$uab_general_settings['uab_custom_template']=='uab-template-13'||
-						$uab_general_settings['uab_custom_template']=='uab-template-14'||
-						$uab_general_settings['uab_custom_template']=='uab-template-16'||
-						$uab_general_settings['uab_custom_template']=='uab-template-18'
-						)){
-						echo 'style="display:none;"'; 
-					} 
-					elseif(!isset($uab_general_settings['uab_custom_template'])) 
-					{
-						echo 'style="display:none;"';	
-					}
-					?>>
-					<div class="uab-label-info-wrap">
-						<label><?php _e('Secondary Color','ultimate-author-box');?></label>
-					</div>
-					<div>
-						<input type="text" name="uab_secondary_color" data-alpha="true" value="<?php esc_attr_e( $uab_general_settings['uab_secondary_color']);?>" class="uab-color-picker uab-secondary-color-picker" >
-					</div>
-				</div>
-				<div class="uab-fields uab-content-wrapper uab-tertiary-color uab-custom-template-option" <?php if(!($uab_general_settings['uab_custom_template']=='uab-template-7'||$uab_general_settings['uab_custom_template']=='uab-template-16')) echo 'style="display:none;"'; elseif(!isset($uab_general_settings['uab_custom_template'])) echo 'style="display:none;"';?>>
-					<div class="uab-label-info-wrap">
-						<label><?php _e('Tertiary Color','ultimate-author-box');?></label>
-					</div>
-					<div>
-						<input type="text" name="uab_tertiary_color" data-alpha="true" value="<?php esc_attr_e( $uab_general_settings['uab_tertiary_color']);?>" class="uab-color-picker uab-tertiary-color-picker" >
-					</div>
-				</div>
-				<div class="uab-fields uab-content-wrapper uab-background uab-custom-template-option" <?php if(!($uab_general_settings['uab_custom_template']=='uab-template-13'||$uab_general_settings['uab_custom_template']=='uab-template-15'||$uab_general_settings['uab_custom_template']=='uab-template-18'||$uab_general_settings['uab_custom_template']=='uab-template-19')) echo 'style="display:none;"'; elseif(!isset($uab_general_settings['uab_custom_template'])) echo 'style="display:none;"';?>>
-					<div class="uab-label-info-wrap">
-						<label for="custom_image_background"><?php _e( 'Upload Custom Image', 'ultimate-author-box' ); ?></label>
-					</div>
-					<div class="background-image-preview uab-custom-template-option">
-						<input type="text" class="uab_upload_background_url" name="custom_image_background" value="<?php esc_attr_e( $uab_general_settings['custom_image_background']);?>"/>
-						<input type="button" class="custom_image_background_button input-controller image_button button-secondary"  value="<?php esc_attr_e('Upload Image','ultimate-author-box');?>" size="25"/> 
-						<div class="current-background-image" ><h4><?php _e( 'Image Preview:', 'ultimate-author-box' ); ?></h4><img src="<?php esc_attr_e( $uab_general_settings['custom_image_background']);?>" style="height:180px; width:180px;"/></div>
-					</div>
-				</div>
-
-			</div>
-		</div>
-		<div id="tab-1" class="uab-tab-content current">
-			<div class="uab-settings-header-wrapper">
-				<h3><?php _e('General Settings');?></h3>
-			</div><!--End of uab-settings-header-wrapper-->
-			<div class="uab-general-settings-content-wrapper">
-				<div class="uap-disable-authorbox uab-content-wrapper">
-					<div class="uab-label-info-wrap">
-						<label><?php _e( 'Disable Ultimate Author Box', 'ultimate-author-box' ); ?></label>
-						<span class="uab-info"><?php _e( 'Disable Author Box in frontend entirely', 'ultimate-author-box' ); ?></span>
-					</div>	
-					<div class="uab-slide-checkbox-wrapper">
-						<div class="uab-slide-checkbox-wrapper-inner">
-							<div class="uab-slide-checkbox">  
-								<input type="checkbox" id="uab-disable-uab" name="uab_disable_uab" <?php if(!empty($uab_general_settings['uab_disable_uab'])) echo 'checked';?>>
-								<label for="uab-disable-uab"></label>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="uab-postion-wrapper ">
-					<span class="uab-inner-title"><?php _e( 'Choose place to show Author Box', 'ultimate-author-box' ); ?></span>
+</div>
+<div id="tab-1" class="uab-tab-content current">
+    <div class="uab-settings-header-wrapper">
+        <h3><?php _e('General Settings'); ?></h3>
+    </div><!--End of uab-settings-header-wrapper-->
+    <div class="uab-general-settings-content-wrapper">
+        <div class="uap-disable-authorbox uab-content-wrapper">
+            <div class="uab-label-info-wrap">
+                <label><?php _e('Disable Ultimate Author Box', 'ultimate-author-box'); ?></label>
+                <span class="uab-info"><?php _e('Disable Author Box in frontend entirely', 'ultimate-author-box'); ?></span>
+            </div>
+            <div class="uab-slide-checkbox-wrapper">
+                <div class="uab-slide-checkbox-wrapper-inner">
+                    <div class="uab-slide-checkbox">
+                        <input type="checkbox" id="uab-disable-uab"
+                               name="uab_disable_uab" <?php if (!empty($uab_general_settings['uab_disable_uab'])) echo 'checked'; ?>>
+                        <label for="uab-disable-uab"></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="uab-postion-wrapper ">
+            <span class="uab-inner-title"><?php _e('Choose place to show Author Box', 'ultimate-author-box'); ?></span>
 
             <div class="uap-disable-authorbox uab-content-wrapper">
                 <div class="uab-label-info-wrap">
@@ -496,10 +339,6 @@ if (isset($_GET['cache-message'])) { ?>
     ?>
     <input type="submit" class="button-primary" value="<?php _e('Save Changes', 'ultimate-author-box'); ?>"
            name="uab_settings_save_button"/>
-    <a href="<?php echo admin_url() . 'admin-post.php?action=uab_restore_settings&_wpnonce=' . $restore_nonce; ?>"
-       onclick="return confirm('<?php _e('Are you sure you want to restore default settings?', 'ultimate-author-box') ?>');"><input
-                type="button" class="button-secondary"
-                value="<?php _e('Restore Default Settings', 'ultimate-author-box'); ?>" class="button-primary"/></a>
     <a href="<?php echo admin_url() . 'profile.php'; ?>"><input type="button" class="button-secondary"
                                                                 value="<?php _e('Go to Profile Settings', 'ultimate-author-box'); ?>"></a>
 </div>

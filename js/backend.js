@@ -202,50 +202,6 @@ $('.uab-color-picker').wpColorPicker();
 		chooseTemplateOptions(post_option);
 	});
 
-//Js For Media Uploader for Custom Template
-	if($('.uab_upload_background_url').val() != ''){
-		$('.current-background-image').show(); 
-	}else{
-		$('.current-background-image').hide();    
-	} 
-
-	$('.custom_image_background_button').click(function(e) {
-		e.preventDefault();
-		
-		var image = wp.media({ 
-			title: 'Upload Image',
-			multiple: false
-		}).open()
-
-		.on('select', function(e){
-			var uploaded_image = image.state().get('selection').first();
-			console.log(uploaded_image);
-			var image_url = uploaded_image.toJSON().url;
-			$('.uab_upload_background_url').val(image_url);
-			$('.current-background-image').find('img').attr('src', image_url);
-			if($('.uab_upload_background_url').val(image_url) != ''){
-				$('.current-background-image').show(); 
-			}else{
-				$('.current-background-image').hide();    
-			}
-		});
-	});
-/*$('.uab-variable-width').bxSlider({
-  minSlides: 3,
-  maxSlides: 6,
-  infiniteLoop: false,
-  pager: false,
-  slideWidth: 200,
-});*/
-
-//Social Icons ToggleSlide
-/*$('.uab-default-tab-wrapper .uab-profile-content-wrapper').hide();
-$('.uab-default-tab-wrapper .uab-profile-header').on('click',function(){
-	$(this).siblings('.uab-profile-content-wrapper').slideToggle();
-});
-*/
-
-
 /**
  * Select Box Jquery
  *  

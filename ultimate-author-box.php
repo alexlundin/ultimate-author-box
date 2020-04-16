@@ -51,8 +51,6 @@ if (!class_exists('Ultimate_Author_Box')) {
             add_action('edit_user_profile_update', array($this, 'uab_save_profile_fields'));
             /* General Settings Save */
             add_action('admin_post_uab_settings_save_action', array($this, 'uab_save_settings'));
-            /* General Settings Restore */
-            add_action('admin_post_uab_restore_settings', array($this, 'uab_restore_settings'));
             /* action to delete cache */
             add_action('admin_post_uab_delete_cache', array($this, 'uab_delete_cache'));
             register_activation_hook(__FILE__, array($this, 'uab_load_default_settings'));
@@ -262,10 +260,6 @@ if (!class_exists('Ultimate_Author_Box')) {
                     $uab_general_settings['uab_template'] = sanitize_text_field($_POST['uab_template']);
 
                     $uab_general_settings['uab_custom_template'] = sanitize_text_field($_POST['uab_custom_template']);
-                    $uab_general_settings['uab_primary_color'] = sanitize_text_field($_POST['uab_primary_color']);
-                    $uab_general_settings['uab_secondary_color'] = sanitize_text_field($_POST['uab_secondary_color']);
-                    $uab_general_settings['uab_tertiary_color'] = sanitize_text_field($_POST['uab_tertiary_color']);
-                    $uab_general_settings['custom_image_background'] = sanitize_text_field($_POST['custom_image_background']);
 
                     $check = update_option('uap_general_settings', $uab_general_settings);
                     wp_redirect(admin_url('admin.php?page=ultimate-author-box&message=1'));
@@ -300,25 +294,10 @@ if (!class_exists('Ultimate_Author_Box')) {
 
             $uab_general_settings['uab_template'] = 'uab-template-1';
             $uab_general_settings['uab_custom_template'] = 'uab-template-1';
-            $uab_general_settings['uab_primary_color'] = '';
-            $uab_general_settings['uab_secondary_color'] = '';
-            $uab_general_settings['uab_tertiary_color'] = '';
-            $uab_general_settings['custom_image_background'] = '';
             return $uab_general_settings;
         }
 
-        /* Restore Default Settings */
 
-        function uab_restore_settings()
-        {
-            if (!empty($_GET) && wp_verify_nonce($_GET['_wpnonce'], 'uab-restore-nonce')) {
-                $default_settings = $this->get_default_settings();
-                update_option('uap_general_settings', $default_settings);
-                wp_redirect(admin_url('admin.php?page=ultimate-author-box&restore-message=1'));
-            } else {
-                die('No script kiddies please!');
-            }
-        }
 
         function uab_delete_cache()
         {
