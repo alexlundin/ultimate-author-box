@@ -13,7 +13,7 @@ defined('ABSPATH') or die('No script kiddies please!');
   Text Domain: ultimate-author-box
  */
 /* include File for Widget */
-include_once('inc/backend/uab-widgets/uab-author-list-widgets.php');
+
 include_once('inc/backend/uab-widgets/uab-author-box-widgets.php');
 
 require 'plugin-update-checker/plugin-update-checker.php';
@@ -64,13 +64,7 @@ if (!class_exists('Ultimate_Author_Box')) {
             add_shortcode('ultimate_author_box', array($this, 'ultimate_author_box'));
             add_shortcode('ultimate_author_box_widget', array($this, 'ultimate_author_box_widget'));
             add_shortcode('ultimate_author_list_widget', array($this, 'ultimate_author_list_widget'));
-            /*
-			add_shortcode( 'ultimate_subscription', array( $this, 'ultimate_subscription' ) );
-			add_shortcode( 'uab_get_image', array( $this, 'uab_get_image' ) );
-			add_shortcode( 'uab_get_company_phone', array( $this, 'uab_get_company_phone' ) );
-			add_shortcode( 'uab_get_company_url', array( $this, 'uab_get_company_url' ) );
-			add_shortcode( 'uab_get_social', array( $this, 'uab_get_social' ) );
-			*/
+
             add_filter('the_content', array($this, 'uab_add_post_content'), 0);
             /* Contact Form Actions */
             add_action('wp_ajax_uab_sendmail', array($this, 'uab_form_submission'));
@@ -79,14 +73,12 @@ if (!class_exists('Ultimate_Author_Box')) {
             add_action('wp_ajax_uab_show_popup', array($this, 'uab_show_popup'));
             add_action('wp_ajax_nopriv_uab_show_popup', array($this, 'uab_show_popup'));
             /* Register Widgets */
-            add_action('widgets_init', array($this, 'register_uap_author_lists_widget'));
             add_action('widgets_init', array($this, 'register_uap_author_box_widget'));
             /* Register Meta Box */
             add_action('add_meta_boxes', array($this, 'uab_metabox'));
             add_action('save_post', array($this, 'uab_meta_save'));
             add_action('save_post', array($this, 'uab_guest_save'));
-            /* Google Fonts */
-            add_action('wp_enqueue_scripts', array($this, 'uab_google_fonts'));
+
             /* add selected widgets on div section using ajax */
             add_action('wp_ajax_add_selected_widget', array($this, 'add_selected_widget'));
             /* edit widget data of specific widgets */
@@ -114,12 +106,6 @@ if (!class_exists('Ultimate_Author_Box')) {
             return $all_roles;
         }
 
-        /* Register UAB_Author_lists_widget */
-
-        function register_uap_author_lists_widget()
-        {
-            register_widget('uab_author_list_widget');
-        }
 
         /* Register UAB_Author_box_widget */
 
@@ -136,7 +122,7 @@ if (!class_exists('Ultimate_Author_Box')) {
             defined('UAB_JS_DIR') or define('UAB_JS_DIR', plugin_dir_url(__FILE__) . 'js');
             defined('UAB_IMG_DIR') or define('UAB_IMG_DIR', plugin_dir_url(__FILE__) . 'images');
             defined('UAB_PATH') or define('UAB_PATH', plugin_dir_path(__FILE__));
-            defined('UAB_VERSION') or define('UAB_VERSION', '2.0.6');
+            defined('UAB_VERSION') or define('UAB_VERSION', '2.1');
 
             $uab_twitter_status = get_option('uab_twitter_status');
             if (isset($uab_twitter_status) && !empty($uab_twitter_status)) {
@@ -298,18 +284,6 @@ if (!class_exists('Ultimate_Author_Box')) {
             ));
         }
 
-        /* Load Google Fonts */
-
-        function uab_google_fonts()
-        {
-            $query_args = array(
-                'family' => 'Amatic+SC|Merriweather|Roboto+Slab|Montserrat|Lato|Italianno|PT+Sans|PT+Sans+Narrow|Raleway|Roboto|Open+Sans|Great+Vibes|Varela+Round',
-                'subset' => 'latin,latin-ext,cursive',
-            );
-            wp_register_style('uab_google_fonts', add_query_arg($query_args, "//fonts.googleapis.com/css"), array(), null);
-            wp_register_style('googleFonts', 'https://fonts.googleapis.com/css?family=Amatic+SC|Crafty+Girls|Italianno|Great+Vibes|Schoolbell|Oswald|Lato|Montserrat|Droid+Sans|Poppins|Varela+Round');
-            wp_enqueue_style('googleFonts');
-        }
 
         /* Add Support Link in Plugin Listing Page */
 
