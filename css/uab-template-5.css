@@ -1,0 +1,616 @@
+/*----------------------
+template 5 css start
+------------------------*/
+
+.uab-template-5 #uab-tab-index-wrapper {
+    text-align: center;
+    width: 100%;
+}
+
+.uab-template-5 .uab-tabs {
+    display: inline-block;
+    background: #fff;
+    margin-bottom: -20px;
+}
+
+.uab-template-5 .uab-tabs a,
+.uab-template-5 .uab-tabs li {
+    padding: 13px 23px;
+    background: #30464e;
+    color: #fff;
+    margin: 5px 5px 5px 0;
+    position: relative;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Raleway', sans-serif;
+}
+
+.uab-template-5 .uab-tabs li:nth-child(1) {
+    margin-left: 5px;
+}
+
+.uab-template-5 .uab-tabs li.uab-current {
+    background: #46747d;
+}
+
+.uab-template-5 .uab-tabs li.uab-current:after {
+    position: absolute;
+    content: '';
+    top: 100%;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 7px 7.5px 0 7.5px;
+    border-color: #46747d transparent transparent transparent;
+}
+
+.uab-template-5 .uab-tab-content {
+    background: #fff;
+    padding: 49px 30px 26px;
+}
+
+.uab-template-5 .uab-content-header {
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.uab-template-5 .uab-social-icons {
+    float: left;
+}
+
+.uab-template-5 .uab-tab-header {
+    width: 20%;
+    min-width: 156px;
+    text-align: center;
+    background: #45747d;
+    line-height: 37px;
+    padding: 0 5px;
+    color: #fff;
+    font-size: 14px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 35px;
+}
+
+.uab-template-5 .uab-social-icons {
+    /*width: 80%;
+    text-align: right;
+    padding-left: 35px;*/
+}
+
+.uab-template-5 .uab-social-icons ul {
+    display: inline-block;
+}
+
+.uab-template-5 .uab-social-icons ul li {
+    float: left;
+    margin: 0 1px 2px;
+}
+
+.uab-template-5 .uab-social-icons ul li a {
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    background: #45747d;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+}
+
+.uab-template-5 .uab-content-mid,
+.uab-template-5 .uab-content-lower {
+    float: left;
+}
+
+.uab-template-5 .uab-content-mid {
+    width: 20%;
+}
+
+.uab-template-5 .uap-profile-image {
+    overflow: hidden;
+    width: 176px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.uab-template-5 .uab-content-lower {
+    width: 80%;
+    padding-left: 35px;
+}
+
+.uab-template-5 .uab-company-info {
+    margin-bottom: 9px;
+}
+
+.uab-template-5 .uab-display-name {
+    margin-bottom: 14px;
+}
+
+.uab-template-5 .uab-company-info,
+.uab-template-5 .uab-company-info span,
+.uab-template-5 .uab-company-info a {
+    color: #7d7d7d;
+    font-size: 12px;
+    font-weight: 500;
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+}
+
+.uab-template-5 .uab-company-info span,
+.uab-template-5 .uab-company-info a {
+    display: inline-block;
+}
+
+.uab-template-5 .uab-display-name span:not(.uab-user-role),
+.uab-template-5 .uab-display-name a {
+    color: #27242f;
+    font-size: 24px;
+    font-weight: 700;
+    font-family: 'Lato', sans-serif;
+    text-transform: capitalize;
+    display: inline-block;
+}
+
+.uab-template-5 .uab-num-post-count,
+.uab-template-5 .uab-linkedin-basic,
+.uab-template-5 .uab-short-info {
+    font-size: 14px;
+    font-family: 'Lato', sans-serif;
+    color: #272727;
+    font-weight: 600;
+    line-height: 1.6;
+}
+
+.uab-template-5 .uab-short-contact {
+    text-align: left;
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
+.uab-template-16 .uab-contact-inner div a,
+.uab-template-11 .uab-contact-inner div a {
+    position: relative;
+    padding-left: 20px;
+    text-align: left;
+}
+
+.uab-template-16 .uab-contact-inner div a:before,
+.uab-template-11 .uab-contact-inner div a:before {
+    font-family: FontAwesome;
+    position: absolute;
+    left: 0px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.uab-template-5 .uab-contact-inner div a:before {
+    font-family: FontAwesome;
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.uab-template-16 .uab-contact-inner .uab-user-website a:before,
+.uab-template-11 .uab-contact-inner .uab-user-website a:before,
+.uab-template-5 .uab-contact-inner .uab-user-website a:before {
+    content: "\f0ac";
+}
+
+.uab-template-16 .uab-contact-inner .uab-user-email a:before,
+.uab-template-11 .uab-contact-inner .uab-user-email a:before,
+.uab-template-5 .uab-contact-inner .uab-user-email a:before {
+    content: "\f003";
+}
+
+.uab-template-16 .uab-contact-inner .uab-user-phone a:before,
+.uab-template-11 .uab-contact-inner .uab-user-phone a:before,
+.uab-template-5 .uab-contact-inner .uab-user-phone a:before {
+    content: "\f095";
+}
+
+.uab-template-5 .uab-user-website a,
+.uab-template-5 .uab-user-email a,
+.uab-template-5 .uab-user-phone a {
+    font-size: 14px;
+    font-family: 'Lato', sans-serif;
+    color: #272727;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 10px;
+    word-wrap: break-word;
+    position: relative;
+}
+
+.uab-template-5 .uab-social-icons ul li a:hover {
+    background: #45747d;
+    color: #f1f1f1;
+}
+
+.uab-template-5 .uab-short-info a,
+.uab-template-5 .uab-display-name span:not(.uab-user-role):hover,
+.uab-template-5 .uab-company-info a:hover,
+.uab-template-5 .uab-display-name a:hover,
+.uab-template-5 .uab-user-website a:hover,
+.uab-template-5 .uab-user-email a:hover,
+.uab-template-5 .uab-user-phone a:hover {
+    color: #45747d;
+}
+
+/*template 5 recent post*/
+
+.uab-post-header {
+    line-height: 1;
+}
+
+.uab-template-5 .uab-post-header {
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Lato', sans-serif;
+    padding: 12px 35px;
+    background: #45747d;
+    color: #fff;
+    display: inline-block;
+    margin-bottom: 29px;
+    text-transform: uppercase;
+}
+
+.uab-template-5 .uab-recent-posts ul {
+    margin: 0 -13px;
+}
+
+.uab-template-5 .uab-recent-posts ul li {
+    float: left;
+    width: 25%;
+    padding: 0 13px;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.uab-template-5 .post-item-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.uab-template-5 .uab-post-second-wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 17px 17px;
+    text-align: left;
+}
+
+.uab-template-5 .uab-recent-posts ul li.uab-no-image .uab-post-second-wrapper {
+    position: relative;
+    background: #aaa;
+}
+
+.uab-template-5 .uab-post-title-wrapper a {
+    font-size: 15px;
+    font-weight: 500;
+    color: #fff;
+    font-family: 'Lato', sans-serif;
+    line-height: 1.5;
+}
+
+.uab-template-5 .uab-post-meta-info .uap-post-author-name {
+    margin-right: 5px;
+}
+
+.uab-template-5 .uab-post-title-wrapper {
+    margin-bottom: 3px;
+}
+
+.uab-template-5 .uab-post-meta-info .uap-post-author-name a,
+.uab-template-5 .uab-post-meta-info .uap-post-author-name,
+.uab-template-5 .uab-post-meta-info .uap-post-date {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 500;
+    color: #fff;
+    font-family: 'Lato', sans-serif;
+    line-height: 1.5;
+}
+
+.uab-template-5 .uab-post-title-wrapper a,
+.uab-template-5 .uab-post-meta-info .uap-post-author-name a {
+    -moz-transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+/*----------------------
+template 5 css end
+------------------------*/
+
+.uab-template-5 .uab-contact-first-wrapper,
+.uab-template-5 .uab-contact-second-wrapper {
+    display: inline-block;
+    width: 50%;
+    margin-right: -4px;
+    vertical-align: top;
+}
+
+.uab-template-5 .uab-contact-first-wrapper {
+    padding-right: 13px;
+}
+
+.uab-template-5 .uab-contact-second-wrapper {
+    padding-left: 13px;
+}
+
+.uab-template-5 .uab-field-wrap input[type=text],
+.uab-template-5 .uab-field-wrap input[type=email],
+.uab-template-5 .uab-field-wrap input[type=tel] {
+    height: 39px;
+    padding: 0 10px;
+}
+
+.uab-template-5 .uab-field-wrap textarea.uab-message-field {
+    height: 157px;
+    resize: none;
+    padding: 10px;
+}
+
+.uab-template-5 .uab-field-wrap input[type=text],
+.uab-template-5 .uab-field-wrap input[type=email],
+.uab-template-5 .uab-field-wrap input[type=tel],
+.uab-template-5 .uab-field-wrap textarea.uab-message-field {
+    border: 1px solid #daedf8;
+    width: 100%;
+    font-size: 13px;
+    color: #333;
+    font-weight: 500;
+    font-family: 'Raleway', sans-serif;
+    -o-border-radius: 0;
+    -ms-border-radius: 0;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    margin-top: 20px;
+}
+
+.uab-template-5 .uab-contact-form-submit input[type=submit] {
+    width: 100%;
+    padding: 0 10px;
+    text-align: center;
+    background: #45747d;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-top: 20px;
+    color: #fff;
+    height: 39px;
+    line-height: 39px;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.uab-template-5 .uab-contact-form-submit input[type=submit]:hover {
+    background: #338e9f;
+}
+
+.uab-template-5 .uab-field-wrap input::-moz-placeholder,
+.uab-template-5 textarea.uab-message-field::-moz-placeholder {
+    font-size: 13px;
+    color: #333;
+    font-weight: 500;
+    font-family: 'Raleway', sans-serif;
+}
+
+.uab-template-5 .uab-field-wrap input:-ms-input-placeholder,
+.uab-template-5 textarea.uab-message-field:-ms-input-placeholder {
+    font-size: 13px;
+    color: #333;
+    font-weight: 500;
+    font-family: 'Raleway', sans-serif;
+}
+
+.uab-template-5 .uab-field-wrap input::-webkit-input-placeholder,
+.uab-template-5 textarea.uab-message-field::-webkit-input-placeholder {
+    font-size: 13px;
+    color: #333;
+    font-weight: 500;
+    font-family: 'Raleway', sans-serif;
+}
+
+.uab-template-5 .uab-linkedin-company-list span.uab-linkedin-company-name:hover,
+.uab-template-5 .uab-co-author-individual .uab-co-author-display-name a:hover,
+.uab-template-5 .uab-linkedin-general .uab-linkedin-profile-name a:hover {
+    color: #45747d;
+}
+
+.uab-template-5 span.uab-co-author-company-link a:hover {
+    color: #45747d;
+}
+
+.uab-template-5 .uab-co-author-individual .uab-co-author-display-name a,
+.uab-template-5 .uab-linkedin-general .uab-linkedin-profile-name a,
+.uab-template-5 .uab-linkedin-company-list span.uab-linkedin-company-name {
+    color: #27242f;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: 'Lato', sans-serif;
+    text-transform: capitalize;
+}
+
+.uab-template-5 .uab-co-author-work span,
+.uab-template-5 .uab-co-author-work span a,
+.uab-template-5 .uab-linkedin-profile-wrapper .uab-linkedin-profile-headline {
+    color: #7d7d7d;
+    font-size: 12px;
+    font-weight: 500;
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+}
+
+.uab-template-5 label.uab-co-author-header {
+    width: 20%;
+    min-width: 156px;
+    text-align: center;
+    background: #45747d;
+    line-height: 37px;
+    padding: 0 5px;
+    color: #fff;
+    font-size: 14px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 10px 5px;
+}
+
+.uab-template-5 .uab-co-author-list .uab-co-author-description {
+    display: inline-block;
+    width: calc(100% - 115px);
+    float: right;
+}
+
+.uab-template-5 .uab-co-author-list .uab-co-author-company .uab-social-icons {
+    padding: 0px;
+}
+
+.uab-template-5 .uab-co-author-list .uab-co-author-company .uab-social-icons ul {
+    float: left;
+}
+
+.uab-template-5.uab-frontend-wrapper .uab-co-author-list {
+    margin-top: 50px;
+}
+
+.uab-template-5 .uab-content-mid .uab-short-contact .uab-contact-inner {
+    padding-left: 20px;
+}
+
+.uab-template-5.uab-frontend-wrapper .uab-facebook-count {
+    background: #46747d;
+}
+
+.uab-template-5.uab-frontend-wrapper .uab-facebook-count i,
+.uab-template-5.uab-frontend-wrapper .uab-facebook-count svg {
+    color: #46747d;
+}
+
+.uab-template-5 .uab-rss-feed-title-wrapper a:hover {
+    color: #46747d;
+}
+
+.uab-template-5 .uab-social-icons .uab-icon-facebook a {
+    background: #4c70a5;
+}
+
+.uab-template-5 .uab-social-icons .uab-icon-twitter a {
+    background: #2cb8e9;
+}
+
+.uab-template-5 .uab-social-icons .uab-icon-instagram a {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.uab-template-5 .uab-social-icons .uab-icon-youtube a {
+    background: #cc3434;
+}
+
+.uab-template-5 .uab-social-icons .uab-icon-linkedin a {
+    background: #017eb4;
+}
+
+.uab-template-5 .uab-social-icons .uab-icon-pinterest a {
+    background: #4267b2;
+}
+
+.uab-template-5 .uab-social-icons .uab-icon-google-plus a {
+    background: #df321c;
+}
+
+.uab-template-5 .uab-social-icons .uab-icon-tumblr a {
+    background: #56bc8a;
+}
+
+.uab-template-5 .uab-social-icons .uab-icon-reddit a {
+    background: #ff4500;
+}
+
+.uab-template-5 .uab-social-icons .uab-icon-flickr a {
+    background: #1b4978;
+}
+
+.uab-template-5 .uab-social-icons .uab-icon-vine a {
+    background: #26b387;
+}
+
+.uab-template-5 .uab-social-icons .uab-icon-meetup a {
+    background: #ed1c40;
+}
+
+.uab-template-5 .uab-social-icons .uab-icon-github a {
+    background: #6cc644;
+}
+
+.uab-template-5 .uab-social-icons .uab-icon-soundcloud a {
+    background: #f50;
+}
+
+.uab-template-5 .uab-social-icons .uab-icon-vimeo a {
+    background: #00b3ec;
+}
+
+.uab-template-5 .uab-social-icons .uab-icon-wordpress a {
+    background: #2e4453;
+}
+
+.uab-template-5 .uab-social-icons .uab-icon-telegram a {
+    background: #0088cc;
+}
+
+.uab-template-5 .uab-social-icons .uab-icon-spotify a {
+    background: #7c25f8;
+}
+
+.uab-template-5 .uab-social-icons .uab-icon-snapchat a {
+    background: #FFFC00;
+    color: #000;
+}
+
+.uab-template-5 .uab-social-icons .uab-icon-skype a {
+    background: #00aff0;
+}
+
+.uab-template-5 .uab-social-icons .uab-icon-whatsapp a {
+    background: #00e676;
+}
+
+.uab-template-5 .uab-social-icons .uab-icon-dribbble a {
+    background: #ea4c89;
+}
+
+.uab-template-5 .uab-co-author-grid label.uab-co-author-header {
+    margin: 30px auto;
+    padding: 0;
+}
+
+.uab-template-5 .uab-co-author-grid .uab-social-icons {
+    padding-left: 0;
+}
+
+.uab-template-5 .uab-social-icons .uab-icon-odnoklassniki a {
+    background: #ff9117;
+}
+
+.uab-template-5 .uab-social-icons .uab-icon-vk a {
+    background-color: #4c75a3;
+}

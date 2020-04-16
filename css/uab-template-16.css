@@ -1,0 +1,407 @@
+.uab-template-16 #uab-tab-index-wrapper {
+    text-align: center;
+    line-height: 1;
+}
+
+.uab-template-16 .uab-tabs {
+    display: inline-block;
+    margin-bottom: -2px;
+}
+
+.uab-template-16 .uab-tabs a,
+.uab-template-16 .uab-tabs li {
+    background: #34327c;
+    color: #ffffff;
+    font-family: 'Crafty Girls', cursive;
+    font-size: 20px;
+    padding: 24px;
+    margin: 0 11px;
+    -webkit-border-radius: 20px 20px 0 0;
+    border-radius: 20px 20px 0 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    float: none;
+    display: inline-block;
+}
+
+.uab-template-16 .uab-tabs li.uab-current {
+    background: #d12881;
+}
+
+.uab-template-16 .uab-tab-content {
+    background: #f3f0ce;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    padding: 64px 40px 42px;
+    -webkit-box-shadow: 7px 7px 0 #d8d4b9;
+    box-shadow: 7px 7px 0 #d8d4b9;
+}
+
+.uab-template-16 .uab-content-temp-wrapper,
+.uab-template-16 .uab-front-content {
+    float: left;
+}
+
+.uab-template-16 .uab-content-temp-wrapper {
+    width: 35%;
+    text-align: center;
+}
+
+.uab-template-16 .uap-profile-image {
+    width: 250px;
+    max-width: 100%;
+    overflow: hidden;
+    margin: 0 auto 15px;
+}
+
+.uab-template-16 .uab-user-website,
+.uab-template-16 .uab-user-email,
+.uab-template-16 .uab-user-phone {
+    margin-bottom: 8px;
+}
+
+.uab-template-16 .uab-user-website a,
+.uab-template-16 .uab-user-email a,
+.uab-template-16 .uab-user-phone a {
+    font-family: 'Crafty Girls', cursive;
+    color: #666;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.2;
+    max-width: 100%;
+    word-wrap: break-word;
+}
+
+.uab-template-16 .uab-social-icons li {
+    display: inline-block;
+    margin-bottom: 3px;
+}
+
+.uab-template-16 .uab-social-icons li a {
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    background: #d8d4b9;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    color: #d12881;
+    font-size: 16px;
+}
+
+.uab-template-16 .uab-social-icons li a:hover {
+    color: #d8d4b9;
+    background: #d12881;
+}
+
+.uab-template-16 .uab-front-content {
+    width: 65%;
+    padding-left: 10px;
+}
+
+.uab-template-16 .uab-tab-header {
+    font-family: 'Crafty Girls', cursive;
+    font-size: 36px;
+    font-weight: 700;
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+.uab-template-16 .uab-display-name {
+    margin-bottom: 20px;
+}
+
+.uab-template-16 .uab-display-name span:not(.uab-user-role),
+.uab-template-16 .uab-display-name a {
+    font-family: 'Crafty Girls', cursive;
+    font-size: 22px;
+    font-weight: 700;
+    color: #d12881;
+}
+
+.uab-template-16 .uab-company-info {
+    margin-bottom: 18px;
+}
+
+.uab-template-16 .uab-company-info,
+.uab-template-16 .uab-company-info span,
+.uab-template-16 .uab-company-info a {
+    font-family: 'Crafty Girls', cursive;
+    font-size: 17px;
+    font-weight: 700;
+    color: #383838;
+}
+
+.uab-template-16 .uab-company-info span,
+.uab-template-16 .uab-company-info a {
+    display: inline-block;
+    margin-bottom: 2px;
+}
+
+.uab-template-16 .uab-num-post-count,
+.uab-template-16 .uab-linkedin-basic,
+.uab-template-16 .uab-short-info {
+    font-family: 'Crafty Girls', cursive;
+    font-size: 17px;
+    font-weight: 700;
+    color: #383838;
+    line-height: 1.5;
+}
+
+.uab-template-16 .uab-num-post-count {
+    font-size: 13px;
+}
+
+.uab-template-16 .uab-display-name span:not(.uab-user-role):hover,
+.uab-template-16 .uab-display-name a:hover,
+.uab-template-16 .uab-company-info a:hover,
+.uab-template-16 .uab-user-website a:hover,
+.uab-template-16 .uab-user-email a:hover,
+.uab-template-16 .uab-user-phone a:hover {
+    color: #d12881;
+}
+
+/*template-16 recent post*/
+
+.uab-template-16 .uab-recent-posts ul li {
+    margin-top: 30px;
+}
+
+.uab-template-16 .uab-recent-posts ul li:nth-of-type(1) {
+    margin-top: 0;
+}
+
+.uab-template-16 .uab-post-title-wrapper {
+    margin-bottom: 10px;
+}
+
+.uab-template-16 .uab-post-title-wrapper a {
+    font-family: 'Crafty Girls', cursive;
+    font-size: 22px;
+    font-weight: 700;
+    color: #d12881;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+.uab-template-16 .uab-post-title-wrapper a:hover {
+    text-decoration: underline;
+}
+
+.uab-template-16 .uap-post-author-name,
+.uab-template-16 .uap-post-date {
+    display: inline-block;
+}
+
+.uab-template-16 .uap-post-author-name {
+    margin-right: 15px;
+}
+
+.uab-template-16 .uap-post-author-name a,
+.uab-template-16 .uap-post-date {
+    font-family: 'Crafty Girls', cursive;
+    font-size: 17px;
+    font-weight: 700;
+    color: #383838;
+}
+
+.uab-template-16 .uab-contact-first-wrapper .uab-field-wrap {
+    display: inline-block;
+    width: 50%;
+    margin-right: -4px;
+}
+
+.uab-template-16 .uab-field-wrap {
+    margin-bottom: 15px;
+}
+
+.uab-template-16 .uab-field-wrap label {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #2c2d30;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+}
+
+.uab-template-16 .uab-contact-first-wrapper .uab-field-wrap:nth-of-type(2n) {
+    padding-left: 17px;
+}
+
+.uab-template-16 .uab-contact-first-wrapper .uab-field-wrap:nth-of-type(2n+1) {
+    padding-right: 17px;
+}
+
+.uab-template-16 .uab-field-wrap input[type=text],
+.uab-template-16 .uab-field-wrap input[type=email],
+.uab-template-16 .uab-field-wrap input[type=tel],
+.uab-template-16 .uab-field-wrap textarea.uab-message-field {
+    width: 100%;
+    font-family: 'Crafty Girls', cursive;
+    font-size: 12px;
+    font-weight: 500;
+    color: #fff;
+    border: 0;
+    -moz-border-radius: 10px;
+    -o-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: #d1cc9a;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.uab-template-16 .uab-field-wrap input[type=text],
+.uab-template-16 .uab-field-wrap input[type=email],
+.uab-template-16 .uab-field-wrap input[type=tel] {
+    height: 46px;
+    line-height: 46px;
+    padding: 0 10px;
+}
+
+.uab-template-16 .uab-field-wrap textarea.uab-message-field {
+    height: 231px;
+    resize: none;
+    padding: 10px;
+}
+
+.uab-template-16 .uab-field-wrap input::-moz-placeholder,
+.uab-template-16 textarea.uab-message-field::-moz-placeholder {
+    font-family: 'Crafty Girls', cursive;
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.uab-template-16 .uab-field-wrap input:-ms-input-placeholder,
+.uab-template-16 textarea.uab-message-field:-ms-input-placeholder {
+    font-family: 'Crafty Girls', cursive;
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.uab-template-16 .uab-field-wrap input::-webkit-input-placeholder,
+.uab-template-16 textarea.uab-message-field::-webkit-input-placeholder {
+    font-family: 'Crafty Girls', cursive;
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.uab-template-16 .uab-contact-form input[type="submit"].uab-contact-submit {
+    font-family: 'Crafty Girls', cursive;
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+    padding: 14px 17px;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: #d12881;
+    -o-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-transition: all 0.5 ease;
+    transition: all 0.5 ease;
+}
+
+.uab-template-16 .uap-success-message {
+    font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #50a0ce;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.uab-template-16 .uab-linkedin-company-list span.uab-linkedin-company-name:hover,
+.uab-template-16 .uab-co-author-individual .uab-co-author-display-name a:hover,
+.uab-template-16 .uab-linkedin-general .uab-linkedin-profile-name a:hover {
+    color: #d12881;
+}
+
+.uab-template-16 span.uab-co-author-company-link a:hover {
+    color: #d12881;
+}
+
+.uab-template-16 .uab-co-author-grid .uab-co-author-description {
+    margin-top: 10px;
+}
+
+.uab-template-16 .uab-co-author-individual .uab-co-author-display-name a,
+.uab-template-16 .uab-linkedin-general .uab-linkedin-profile-name a,
+.uab-template-16 .uab-linkedin-company-list span.uab-linkedin-company-name {
+    font-family: 'Crafty Girls', cursive;
+    font-size: 18px;
+    font-weight: 700;
+    color: #d12881;
+}
+
+.uab-template-16 .uab-co-author-list .uab-co-author-description {
+    display: inline-block;
+    width: calc(100% - 115px);
+    margin-left: 10px;
+    float: right;
+}
+
+.uab-template-16 .uab-co-author-work span,
+.uab-template-16 .uab-co-author-work span a,
+.uab-template-16 .uab-linkedin-profile-wrapper .uab-linkedin-profile-headline {
+    font-family: 'Crafty Girls', cursive;
+    font-size: 15px;
+    font-weight: 700;
+    color: #383838;
+}
+
+.uab-template-16 label.uab-co-author-header {
+    font-family: 'Crafty Girls', cursive;
+    font-size: 25px;
+    font-weight: 700;
+    color: #333333;
+    padding: 10px 5px;
+}
+
+.uab-template-16 .uab-short-info a {
+    color: #d12881;
+}
+
+.uab-template-16 .uab-linkedin-profile-wrapper .uab-linkedin-profile-summary {
+    font-family: 'Crafty Girls', cursive;
+    font-size: 15px;
+    font-weight: 700;
+    color: #383838;
+    line-height: 1.5;
+}
+
+.uab-template-16 .uab-co-author-individual .uab-social-icons li {
+    text-align: center;
+}
+
+.uab-template-16 .uab-co-author-list,
+.uab-template-16 .uab-co-author-grid,
+.uab-template-16 .uab-linkedin-profile-wrapper .uab-linkedin-company-list {
+    border-top-color: #888;
+}
+
+.uab-template-16 .uab-social-temp-wrapper-3 .uab-social-action-wrapper .uab-social-action a {
+    background: transparent;
+}
+
+.uab-template-16 .uab-rss-feed-title-wrapper a:hover {
+    color: #34327c;
+}
+
+.uab-template-16 .uab-co-author-grid label.uab-co-author-header {
+    padding: 20px;
+}

@@ -1,0 +1,764 @@
+.uab-template-12 .uab-frontend-wrapper {
+    display: block;
+    text-align: left;
+}
+
+.uab-template-12 .uab-author-info,
+.uab-template-12 .uab-content-temp-wrapper {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: -4px;
+}
+
+.uab-template-12 .uab-author-info {
+    width: 20%;
+    padding: 9px 20px 9px 9px;
+    overflow: hidden;
+}
+
+.uab-template-12 .uab-display-name span:not(.uab-user-role),
+.uab-template-12 .uab-display-name a {
+    font-family: 'Merriweather', serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #e16d26;
+    margin-bottom: 13px;
+}
+
+.uab-template-12 .uab-display-name .uab-user-role {
+    font-family: 'Merriweather', serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: #5b5b5b;
+    margin-bottom: 13px;
+    display: none;
+}
+
+.uab-template-12 .uab-company-info,
+.uab-template-12 .uab-company-info span,
+.uab-template-12 .uab-company-info a {
+    font-family: 'Merriweather', serif;
+    font-size: 13px;
+    color: #5b5b5b;
+}
+
+.uab-template-12 .uab-company-info span,
+.uab-template-12 .uab-company-info a {
+    margin-bottom: 5px;
+}
+
+.uab-template-12 .uab-company-info {
+    margin-bottom: 9px;
+}
+
+.uab-template-12 .uab-company-info span,
+.uab-template-12 .uab-company-info a {
+    display: inline-block;
+}
+
+.uab-template-12 .uab-author-profile-pic {
+    margin-bottom: 12px;
+}
+
+.uab-template-12 .uap-profile-image {
+    width: 190px;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.uab-template-12 .uab-social-icons {
+    clear: both;
+    width: 100%;
+    text-align: left;
+}
+
+.uab-template-12 .uab-social-icons ul {
+    display: inline-block;
+}
+
+.uab-template-12 .uab-social-icons ul li {
+    float: left;
+    padding: 3px;
+}
+
+.uab-template-12 .uab-co-author-grid .uab-social-icons ul {
+    margin: 0;
+}
+
+.uab-template-12 .uab-co-author-grid .uab-social-icons ul li {
+    float: none;
+    display: inline-block;
+}
+
+.uab-template-12 .uab-co-author-grid .uab-social-icons {
+    text-align: center;
+}
+
+.uab-template-12 .uab-social-icons ul li a {
+    width: 28px;
+    height: 28px;
+    background: #e16d26;
+    text-align: center;
+    line-height: 28px;
+    color: #fff;
+}
+
+.uab-template-12 .uab-social-icons ul li a:hover {
+    background: #e16d26;
+}
+
+.uab-template-12 .uab-content-temp-wrapper {
+    width: 80%;
+}
+
+.uab-template-12 .uab-tabs {
+    margin-bottom: -1px;
+}
+
+.uab-template-12 .uab-tabs a,
+.uab-template-12 .uab-tabs li {
+    padding: 19px 25px;
+    background: #e06c25;
+    border: 1px solid #e06c25;
+    border-right: 1px solid #fff;
+    color: #fff;
+    font-size: 14px;
+    font-family: 'Lato', sans-serif;
+    text-transform: capitalize;
+    font-weight: 600;
+    position: relative;
+}
+
+.uab-template-12 .uab-tabs li.uab-current {
+    background: #fff;
+    color: #333;
+    border: 1px solid #ececec;
+    border-left: 0;
+    border-bottom: 1px solid transparent;
+}
+
+.uab-template-12 .uab-tabs li:nth-child(1).uab-current {
+    border-left: 1px solid #ececec;
+}
+
+.uab-template-12 .uab_external_link_tab:before,
+.uab-template-12 .uab_author_detail:before,
+.uab-template-12 .uab_author_post:before,
+.uab-template-12 .uab_company_description:before,
+.uab-template-12 .uab_contact_form:before,
+.uab-template-12 .uab_twitter_feeds:before,
+.uab-template-12 .uab_rss_feeds:before,
+.uab-template-12 .uab_facebook_feeds:before,
+.uab-template-12 .uab_shortcode:before,
+.uab-template-12 .uab_editor:before,
+.uab-template-12 .uab_widget:before,
+.uab-template-12 .uab_linkedin_profile:before {
+    position: relative;
+    display: inline-block;
+    font-family: Fontawesome;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.uab-template-12 .uab_widget:before {
+    content: "\f210";
+}
+
+.uab-template-12 .uab_external_link_tab:before {
+    content: "\f08e";
+}
+
+.uab-template-12 .uab_author_detail:before {
+    content: "\f007";
+}
+
+.uab-template-12 .uab_author_post:before {
+    content: "\f1ea";
+    font-weight: 400;
+}
+
+.uab-template-12 .uab_company_description:before {
+    content: "\f19c";
+}
+
+.uab-template-12 .uab_contact_form:before {
+    content: "\f0e0";
+}
+
+.uab-template-12 .uab_twitter_feeds:before {
+    content: "\f099";
+}
+
+.uab-template-12 .uab_rss_feeds:before {
+    content: "\f09e";
+}
+
+.uab-template-12 .uab_facebook_feeds:before {
+    content: "\f09a";
+}
+
+.uab-template-12 .uab_shortcode:before {
+    content: "\f135";
+}
+
+.uab-template-12 .uab_editor:before {
+    content: "\f022";
+}
+
+.uab-template-12 .uab-tab-content {
+    border: 1px solid #ececec;
+    padding: 38px 30px;
+    background: #fff;
+}
+
+.uab-template-12 .uab-tab-header {
+    font-size: 18px;
+    font-family: 'Merriweather', serif;
+    font-weight: 600;
+    color: #444444;
+    text-transform: uppercase;
+    position: relative;
+    margin-bottom: 24px;
+}
+
+.uab-template-12 .uab-tab-header:before {
+    content: '';
+    position: absolute;
+    width: 7px;
+    height: 100%;
+    top: 0;
+    left: -16px;
+    background: #e16d26;
+}
+
+.uab-template-12 .uab-num-post-count,
+.uab-template-12 .uab-linkedin-basic,
+.uab-template-12 .uab-short-info {
+    font-size: 13px;
+    font-family: 'Merriweather', serif;
+    color: #666666;
+    font-weight: 500;
+    line-height: 1.7;
+    margin-bottom: 27px;
+}
+
+.uab-template-12 .uab-num-post-count {
+    margin-bottom: 0px;
+}
+
+.uab-template-12 .uab-contact-inner {
+    margin-bottom: 19px;
+}
+
+.uab-template-12 .uab-contact-inner:last-child {
+    margin-bottom: 0;
+}
+
+.uab-template-12 .uab-user-website a,
+.uab-template-12 .uab-user-email a,
+.uab-template-12 .uab-user-phone a {
+    font-size: 14px;
+    font-family: 'Merriweather', serif;
+    color: #333;
+    font-weight: 500;
+    position: relative;
+    padding-left: 23px;
+}
+
+.uab-template-12 .uab-user-website a:before,
+.uab-template-12 .uab-user-email a:before,
+.uab-template-12 .uab-user-phone a:before {
+    position: absolute;
+    font-family: Fontawesome;
+    display: inline-block;
+    width: 20px;
+    left: 0;
+    top: 0;
+    color: #e16d26;
+}
+
+.uab-template-12 .uab-user-website a:before {
+    content: "\f0ac";
+}
+
+.uab-template-12 .uab-user-email a:before {
+    content: "\f003";
+}
+
+.uab-template-12 .uab-user-phone a:before {
+    content: "\f095";
+}
+
+.uab-template-12 .uab-social-icons ul {
+    margin: 0 -3px;
+}
+
+.uab-template-12 .uab-display-name span:not(.uab-user-role):hover,
+.uab-template-12 .uab-display-name a:hover,
+.uab-template-12 .uab-company-info a:hover,
+.uab-template-12 .uab-user-website a:hover,
+.uab-template-12 .uab-user-email a:hover,
+.uab-template-12 .uab-user-phone a:hover {
+    color: #e16d26;
+}
+
+/*template-12 recent post */
+
+.uab-template-12 .uab-recent-posts ul li {
+    margin-top: 30px;
+}
+
+.uab-template-12 .uab-recent-posts ul li:nth-of-type(1) {
+    margin-top: 0px;
+}
+
+.uab-template-12 .uab-post-title-wrapper {
+
+}
+
+.uab-template-12 .uab-post-title-wrapper a {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Merriweather', serif;
+    color: #444;
+    font-weight: 700;
+    line-height: 1;
+    border-left: 7px solid #e16d26;
+    padding-left: 10px;
+    display: inline-block;
+}
+
+.uab-template-12 .uab-post-title-wrapper + .uab-post-meta-info {
+    margin-top: 10px;
+}
+
+.uab-template-12 .uap-post-author-name,
+.uab-template-12 .uap-post-date {
+    display: inline-block;
+    position: relative;
+    padding-left: 23px;
+    margin-left: 13px;
+}
+
+.uab-template-12 .uap-post-author-name:before,
+.uab-template-12 .uap-post-date:before {
+    position: absolute;
+    top: 0;
+    width: 20px;
+    left: 0;
+    font-family: Fontawesome;
+    color: #e16d26;
+    font-size: 14px;
+}
+
+.uab-template-12 .uap-post-author-name a,
+.uab-template-12 .uap-post-author-name span,
+.uab-template-12 .uap-post-date {
+    color: #333;
+    font-size: 13px;
+    font-weight: 500;
+    font-family: 'Merriweather', serif;
+}
+
+.uab-template-12 .uap-post-date:before {
+    content: "\f017";
+}
+
+.uab-template-12 .uap-post-author-name:before {
+    content: "\f007";
+}
+
+.uab-template-12 .uab-contact-first-wrapper .uab-field-wrap {
+    width: 50%;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: -4px;
+}
+
+.uab-template-12 .uab-field-wrap {
+    margin-bottom: 22px;
+}
+
+.uab-template-12 .uab-contact-first-wrapper .uab-field-wrap:nth-of-type(2n) {
+    padding-left: 10px;
+}
+
+.uab-template-12 .uab-contact-first-wrapper .uab-field-wrap:nth-of-type(2n+1) {
+    padding-right: 10px;
+}
+
+.uab-template-12 .uab-field-wrap .uab-field {
+    position: relative;
+}
+
+.uab-template-12 .uab-field-wrap input[type=text],
+.uab-template-12 .uab-field-wrap input[type=email],
+.uab-template-12 .uab-field-wrap input[type=tel] {
+    height: 44px;
+    padding: 0 10px 0 44px;
+}
+
+.uab-template-12 .uab-field-wrap input[type=text],
+.uab-template-12 .uab-field-wrap input[type=email],
+.uab-template-12 .uab-field-wrap input[type=tel],
+.uab-template-12 .uab-field-wrap textarea.uab-message-field {
+    border: 1px solid #c7c7c9;
+    width: 100%;
+    font-family: Lato, sans-serif;
+    color: #858585;
+    background-color: #efeeee;
+    -o-border-radius: 0;
+    -ms-border-radius: 0;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+}
+
+.uab-template-12 .uab-field-wrap textarea.uab-message-field {
+    height: 180px;
+    resize: none;
+    padding: 10px;
+    padding-left: 44px;
+}
+
+.uab-template-12 .uab-field-wrap .uab-field i,
+.uab-template-12 .uab-field-wrap .uab-field svg {
+    position: absolute;
+    width: 42px;
+    text-align: center;
+    background: #efeeee;
+    height: 20px;
+    line-height: 41px;
+    border: 0;
+    left: 2px;
+    top: 5px;
+    bottom: 1px;
+    font-size: 14px;
+    color: #858585;
+}
+
+.uab-template-12 .uab-contact-form-submit input[type=submit] {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    background: #e06c25;
+    padding: 17px 25px;
+    text-transform: uppercase;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.uab-template-12 .uab-contact-form-submit input[type=submit]:hover {
+    background: #ff6100;
+}
+
+.uab-template-12 .uap-success-message {
+    text-align: center;
+    font-size: 14px;
+    color: #51c18b;
+    font-family: 'Lato', sans-serif;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-top: 20px;
+}
+
+.uab-template-12 .uab-linkedin-company-list span.uab-linkedin-company-name:hover,
+.uab-template-12 .uab-co-author-individual .uab-co-author-display-name a:hover,
+.uab-template-12 .uab-linkedin-general .uab-linkedin-profile-name a:hover {
+    color: #e06c25;
+}
+
+.uab-template-12 span.uab-co-author-company-link a:hover {
+    color: #e06c25;
+}
+
+.uab-template-12 .uab-co-author-individual .uab-co-author-display-name a,
+.uab-template-12 .uab-linkedin-general .uab-linkedin-profile-name a,
+.uab-template-12 .uab-linkedin-company-list span.uab-linkedin-company-name {
+    font-family: 'Merriweather', serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: #e16d26;
+    margin-bottom: 13px;
+}
+
+.uab-template-12 .uab-co-author-work span,
+.uab-template-12 .uab-co-author-work span a,
+.uab-template-12 .uab-linkedin-profile-wrapper .uab-linkedin-profile-headline {
+    font-family: 'Merriweather', serif;
+    font-size: 12px;
+    color: #5b5b5b;
+}
+
+.uab-template-12 .uab-co-author-list .uab-co-author-description {
+    display: inline-block;
+    width: calc(100% - 115px);
+    margin-left: 10px;
+    float: right;
+}
+
+.uab-template-12 label.uab-co-author-header {
+    font-size: 18px;
+    font-family: 'Merriweather', serif;
+    font-weight: 600;
+    color: #444444;
+    text-transform: uppercase;
+    position: relative;
+    padding: 0px;
+    margin: 15px 0px;
+}
+
+.uab-template-12 label.uab-co-author-header:before {
+    content: '';
+    position: absolute;
+    width: 7px;
+    height: 100%;
+    top: 0;
+    background: #e16d26;
+    -webkit-transform: translateX(-15px);
+    -moz-transform: translateX(-15px);
+    -ms-transform: translateX(-15px);
+    -o-transform: translateX(-15px);
+    transform: translateX(-15px);
+}
+
+.uab-template-12 .uab-social-header .uab-social-follow a {
+    background: #f0425d;
+}
+
+.uab-template-12 .uab-short-info a,
+.uab-template-12 .uab-social-content a {
+    color: #e06c25;
+}
+
+.uab-template-12 .uab-social-wrapper-second .uab-title-social-wrapper a:hover,
+.uab-template-12 .uab-social-wrapper-second .uab-social-username-wrapper a:hover {
+    color: #e06c25;
+}
+
+.uab-template-12 .uab-social-action-wrapper {
+    text-align: left;
+    margin-top: 10px;
+}
+
+.uab-template-12 .uab-social-action-wrapper .uab-social-action a:hover {
+    background: #f0425d;
+}
+
+.uab-template-12.uab-frontend-wrapper .uab-facebook-count {
+    background: transparent;
+    color: #e06c25;
+}
+
+.uab-template-12.uab-frontend-wrapper .uab-facebook-count i,
+.uab-template-12.uab-frontend-wrapper .uab-facebook-count svg {
+    color: #e06c25;
+    width: auto;
+}
+
+.uab-template-12 .uab-rss-feed-title-wrapper a:hover {
+    color: #e06c25;
+}
+
+.uab-template-12 .uab-social-icons .uab-icon-facebook a {
+    background: #4c70a5;
+}
+
+.uab-template-12 .uab-social-icons .uab-icon-twitter a {
+    background: #2cb8e9;
+}
+
+.uab-template-12 .uab-social-icons .uab-icon-instagram a {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.uab-template-12 .uab-social-icons .uab-icon-youtube a {
+    background: #cc3434;
+}
+
+.uab-template-12 .uab-social-icons .uab-icon-linkedin a {
+    background: #017eb4;
+}
+
+.uab-template-12 .uab-social-icons .uab-icon-pinterest a {
+    background: #4267b2;
+}
+
+.uab-template-12 .uab-social-icons .uab-icon-google-plus a {
+    background: #df321c;
+}
+
+.uab-template-12 .uab-social-icons .uab-icon-tumblr a {
+    background: #56bc8a;
+}
+
+.uab-template-12 .uab-social-icons .uab-icon-reddit a {
+    background: #ff4500;
+}
+
+.uab-template-12 .uab-social-icons .uab-icon-flickr a {
+    background: #1b4978;
+}
+
+.uab-template-12 .uab-social-icons .uab-icon-vine a {
+    background: #26b387;
+}
+
+.uab-template-12 .uab-social-icons .uab-icon-meetup a {
+    background: #ed1c40;
+}
+
+.uab-template-12 .uab-social-icons .uab-icon-github a {
+    background: #6cc644;
+}
+
+.uab-template-12 .uab-social-icons .uab-icon-soundcloud a {
+    background: #f50;
+}
+
+.uab-template-12 .uab-social-icons .uab-icon-vimeo a {
+    background: #00b3ec;
+}
+
+.uab-template-12 .uab-social-icons .uab-icon-wordpress a {
+    background: #2e4453;
+}
+
+.uab-template-12 .uab-social-icons .uab-icon-telegram a {
+    background: #0088cc;
+}
+
+.uab-template-12 .uab-social-icons .uab-icon-spotify a {
+    background: #7c25f8;
+}
+
+.uab-template-12 .uab-social-icons .uab-icon-snapchat a {
+    background: #FFFC00;
+    color: #000;
+}
+
+.uab-template-12 .uab-social-icons .uab-icon-skype a {
+    background: #00aff0;
+}
+
+.uab-template-12 .uab-social-icons .uab-icon-whatsapp a {
+    background: #00e676;
+}
+
+.uab-template-12 .uab-social-icons .uab-icon-dribbble a {
+    background: #ea4c89;
+}
+
+.uab-template-12 .uab-social-header {
+    text-align: right;
+}
+
+.uab-template-12 .uab-social-header .uab-social-follow a {
+    display: inline-block;
+    font-family: 'Lato', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: #fff;
+    padding: 5px 7px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+
+.uab-template-12 .uab-social-content {
+    border: 1px solid #efeeee;
+}
+
+.uab-template-12 .uab-social-content {
+    padding: 10px;
+    width: 100%;
+    margin-top: 10px;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333333;
+    line-height: 1.5;
+}
+
+.uab-template-12 .uab-social-content a {
+    display: inline-block;
+}
+
+.uab-template-12 .uab-social-wrapper-second .uab-title-social-wrapper,
+.uab-template-12 .uab-social-wrapper-second .uab-social-username-wrapper,
+.uab-template-12 .uab-social-wrapper-second .uab-social-date {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.uab-template-12 .uab-social-wrapper-second .uab-title-social-wrapper a,
+.uab-template-12 .uab-social-wrapper-second .uab-social-username-wrapper a,
+.uab-template-12 .uab-social-wrapper-second .uab-social-date {
+    font-weight: 600;
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+    display: inline-block;
+}
+
+.uab-template-12 .uab-social-wrapper-second .uab-title-social-wrapper a,
+.uab-template-12 .uab-social-wrapper-second .uab-social-username-wrapper a,
+.uab-template-12 .uab-social-wrapper-second .uab-social-date a {
+    color: #1e2a36;
+}
+
+.uab-template-12 .uab-social-wrapper-second .uab-title-social-wrapper a {
+    text-transform: uppercase;
+}
+
+.uab-template-12 .uab-social-action-wrapper .uab-social-action {
+    display: inline-block;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+.uab-template-12 .uab-social-action-wrapper .uab-social-action.uab-facebook-action {
+    opacity: 1;
+    visibility: visible;
+}
+
+.uab-template-12 .uab-social-feed li {
+    margin-top: 20px;
+}
+
+.uab-template-12 .uab-social-feed li:nth-of-type(1) {
+    margin-top: 0;
+}
+
+.uab-template-12 .uab-social-feed-inner-wrapper:hover .uab-social-action-wrapper .uab-social-action {
+    opacity: 1;
+    visibility: visible;
+}
+
+.uab-template-12 .uab-social-action-wrapper .uab-social-action a {
+    background: #777;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    color: #fff;
+    font-size: 12px;
+}
+
+.uab-template-12 .uab-co-author-list .uab-author-profile-pic {
+    margin-bottom: 0;
+}
+
+.uab-template-12 .uab_linkedin_profile:before {
+    content: "\f0e1";
+}
+
+.uab-template-12 .uab-social-icons .uab-icon-odnoklassniki a {
+    background: #ff9117;
+}
+
+.uab-template-12 .uab-social-icons .uab-icon-vk a {
+    background-color: #4c75a3;
+}
