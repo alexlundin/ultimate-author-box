@@ -2,15 +2,7 @@
 <?php
 if(empty($unserialized_uab_profile_data)){
 	esc_html_e( 'Please fill your Author Box', 'ultimate-author-box' );
-}else{
-	// $this->print_array($unserialized_uab_profile_data);
 }
-if(empty($uab_general_settings['uab_twitter_api_key'])||
-	empty($uab_general_settings['uab_twitter_api_secret'])||
-	empty($uab_general_settings['uab_twitter_access_token'])||
-	empty($uab_general_settings['uab_twitter_token_secret'])){
-	$twitter_flag = 1;
-}else{$twitter_flag = 0;} 
 ?>
 <div class="uab-profile-backend-wrapper">
 	<div class="uab-profile-header-wrapper">

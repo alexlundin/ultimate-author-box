@@ -1,7 +1,6 @@
 <?php
 defined( 'ABSPATH' ) or die( 'No script kiddies please!' ); 
 $uab_general_settings = get_option('uap_general_settings');
-$uab_twitter_status = get_option('uab_twitter_status');
 $uab_shortcode_atts = shortcode_atts( array(
 	'user_id' => get_the_author_meta('ID'),
 	'template' => isset($uab_general_settings['uab_template'])?$uab_general_settings['uab_template']:'uab-template-1',
@@ -133,7 +132,7 @@ if ($uab_general_settings['uab_disable_uab']){
 								$keyArray[$index] = $index;
 								if( $keyArray[$index] != '0' && $keyArray[$index] != 'uab_id' && $keyArray[$index] != '1'){
 									?>
-									<?php if (($uab_profile_data[$index]['uab_tab_type'] != 'uab_external_link') && ( $uab_profile_data[$index]['uab_tab_type'] != 'uab_twitter_feeds') || (( $uab_profile_data[$index]['uab_tab_type'] == 'uab_twitter_feeds') && isset($uab_twitter_status) && !empty($uab_twitter_status)) ): ?>
+									<?php if (($uab_profile_data[$index]['uab_tab_type'] != 'uab_external_link') && ( $uab_profile_data[$index]['uab_tab_type'] != 'uab_twitter_feeds')): ?>
 										<li class="tab-link <?php esc_attr_e($uab_profile_data[$index]['uab_tab_type']);?>" data-tab="tab-<?php esc_attr_e($index);?>" data-name="<?php
 											echo (isset( $uab_profile_data[$index]['uab_tab_name'] )) ? esc_attr($uab_profile_data[$index]['uab_tab_name']) : 'Tab'.$index ;?>">
 											<?php 

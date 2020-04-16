@@ -124,11 +124,6 @@ if (!class_exists('Ultimate_Author_Box')) {
             defined('UAB_PATH') or define('UAB_PATH', plugin_dir_path(__FILE__));
             defined('UAB_VERSION') or define('UAB_VERSION', '2.1');
 
-            $uab_twitter_status = get_option('uab_twitter_status');
-            if (isset($uab_twitter_status) && !empty($uab_twitter_status)) {
-                include(UAB_PATH . '/twitteroauth/OAuth.php');
-                include(UAB_PATH . '/twitteroauth/twitteroauth.php');
-            }
 
             include(UAB_PATH . 'LinkedinProfile/uab_linkedin_class.php');
         }
@@ -384,9 +379,6 @@ if (!class_exists('Ultimate_Author_Box')) {
                         $uab_general_settings['uab_user_roles'] = array();
                     }
 
-                    $uab_twitter_status = (isset($_POST['uab_twitter_status']) ? boolval(1) : boolval(0));
-                    update_option('uab_twitter_status', $uab_twitter_status);
-
                     $uab_general_settings['uab_disable_uab'] = (isset($_POST['uab_disable_uab']) ? 1 : 0);
                     $uab_general_settings['uab_posts'] = (isset($_POST['uab_posts']) ? 1 : 0);
                     $uab_general_settings['uab_pages'] = (isset($_POST['uab_pages']) ? 1 : 0);
@@ -402,11 +394,7 @@ if (!class_exists('Ultimate_Author_Box')) {
                     $uab_general_settings['uab_disable_coauthor'] = (isset($_POST['uab_disable_coauthor']) ? 1 : 0);
                     $uab_general_settings['uab_coauthor_header_text'] = (isset($_POST['uab_coauthor_header_text']) && !empty($_POST['uab_coauthor_header_text'])) ? sanitize_text_field($_POST['uab_coauthor_header_text']) : esc_html('Co Authors', 'ultimate_author_box');
                     $uab_general_settings['uab_disable_customizer'] = (isset($_POST['uab_disable_customizer']) ? 1 : 0);
-                    $uab_general_settings['uab_twitter_api_key'] = sanitize_text_field($_POST['uab_twitter_api_key']);
-                    $uab_general_settings['uab_twitter_api_secret'] = sanitize_text_field($_POST['uab_twitter_api_secret']);
-                    $uab_general_settings['uab_twitter_access_token'] = sanitize_text_field($_POST['uab_twitter_access_token']);
-                    $uab_general_settings['uab_twitter_token_secret'] = sanitize_text_field($_POST['uab_twitter_token_secret']);
-                    $uab_general_settings['uab_twitter_cache_period'] = sanitize_text_field($_POST['uab_twitter_cache_period']);
+
                     $uab_general_settings['uab_template'] = sanitize_text_field($_POST['uab_template']);
 
                     $uab_general_settings['uab_custom_template'] = sanitize_text_field($_POST['uab_custom_template']);
@@ -447,11 +435,7 @@ if (!class_exists('Ultimate_Author_Box')) {
             $uab_general_settings['uab_link_target_option'] = '_blank';
             $uab_general_settings['uab_show_popup'] = 1;
             $uab_general_settings['uab_disable_customizer'] = 1;
-            $uab_general_settings['uab_twitter_api_key'] = '';
-            $uab_general_settings['uab_twitter_api_secret'] = '';
-            $uab_general_settings['uab_twitter_access_token'] = '';
-            $uab_general_settings['uab_twitter_token_secret'] = '';
-            $uab_general_settings['uab_twitter_cache_period'] = '1';
+
             $uab_general_settings['uab_template'] = 'uab-template-1';
             $uab_general_settings['uab_custom_template'] = 'uab-template-1';
             $uab_general_settings['uab_primary_color'] = '';
@@ -756,36 +740,6 @@ if (!class_exists('Ultimate_Author_Box')) {
         {
             $ai_connection = new TwitterOAuth($cons_key, $cons_secret, $oauth_token, $oauth_token_secret);
             return $ai_connection;
-        }
-
-        /* Fetch Twitter Feed */
-
-        function get_twitter_tweets($username, $total_tweets_number)
-        {
-            $uab_general_settings = get_option('uap_general_settings');
-            $tweets = get_transient('uab_tweets');
-            $username = str_replace('@', '', $username);
-
-            if (false === $tweets) {
-                $consumer_key = $uab_general_settings['uab_twitter_api_key'];
-                $consumer_secret = $uab_general_settings['uab_twitter_api_secret'];
-                $access_token = $uab_general_settings['uab_twitter_access_token'];
-                $access_token_secret = $uab_general_settings['uab_twitter_token_secret'];
-                $oauth_connection = $this->get_oauth_connection($consumer_key, $consumer_secret, $access_token, $access_token_secret);
-                $tweets = $oauth_connection->get("https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=" . $username . "&count=" . $total_tweets_number);
-
-                if (isset($uab_general_settings['uab_twitter_cache_period'])) {
-                    $cache_period = $uab_general_settings['uab_twitter_cache_period'];
-                } else {
-                    $cache_period = 1;
-                }
-                $cache_period = intval($cache_period) * 60;
-                $cache_period = ($cache_period < 1) ? 3600 : $cache_period;
-                if (!isset($tweets->errors)) {
-                    set_transient('uab_tweets', $tweets, $cache_period);
-                }
-            }
-            return $tweets;
         }
 
         /* Callback funtion to Add Content to Profile.php */
