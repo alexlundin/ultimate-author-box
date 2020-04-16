@@ -43,9 +43,7 @@ if (!class_exists('Ultimate_Author_Box')) {
             add_action('wp_enqueue_scripts', array($this, 'uab_register_frontend_assets'));
             /* Register Ultimate Author Box Dashboard Menu */
             add_action('admin_menu', array($this, 'uab_menu'));
-
-            /* Register additional support link in plugin listings */
-            add_filter('plugin_action_links', array($this, 'uab_plugin_action_link'), 10, 5);
+            
             add_action('show_user_profile', array($this, 'uab_profile_fields'));
             add_action('edit_user_profile', array($this, 'uab_profile_fields'));
             /* add_action( 'wp_ajax_save_tab_option', array( $this, 'uab_profile_fields' ) ); */
@@ -125,7 +123,7 @@ if (!class_exists('Ultimate_Author_Box')) {
 
         function uab_init()
         {
-            include(UAB_PATH . 'inc/backend/guest_author/register_guest_author.php');
+
             if (!session_id() && !headers_sent()) {
                 session_start();
             }
@@ -134,9 +132,6 @@ if (!class_exists('Ultimate_Author_Box')) {
 
         /* Register Backend resources (Enqueue scripts and style) */
 
-        function uab_register_backend_guest()
-        {
-        }
 
         function uab_register_backend_assets($hook)
         {
@@ -200,21 +195,6 @@ if (!class_exists('Ultimate_Author_Box')) {
         }
 
 
-        /* Add Support Link in Plugin Listing Page */
-
-        function uab_plugin_action_link($actions, $plugin_file)
-        {
-            static $plugin;
-            if (!isset($plugin))
-                $plugin = plugin_basename(__FILE__);
-            if ($plugin == $plugin_file) {
-                $settings = array('settings' => '<a href="admin.php?page=ultimate-author-box">' . __('Settings', 'ultimate-author-box') . '</a>');
-                $site_link = array('support' => '<a href="https://accesspressthemes.com/support/" target="_blank">' . __('Support', 'ultimate-author-box') . '</a>');
-                $actions = array_merge($settings, $actions);
-                $actions = array_merge($site_link, $actions);
-            }
-            return $actions;
-        }
 
         /* Registering Plugin access through Dashboard */
 
