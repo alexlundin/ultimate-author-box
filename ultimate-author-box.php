@@ -83,7 +83,6 @@ if (!class_exists('Ultimate_Author_Box')) {
             add_action('wp_ajax_uab_delete_widget', array($this, 'ajax_delete_widget_form'));
             /* save widgets data */
             add_action('wp_ajax_uab_save_widget', array($this, 'ajax_save_widget'));
-            add_action('init', array($this, 'register_sidebar'));
             add_action('after_widget_add', array($this, 'clear_caches'));
             add_action('after_widget_save', array($this, 'clear_caches'));
             add_action('after_widget_delete', array($this, 'clear_caches'));
@@ -1452,21 +1451,6 @@ Thank you!  ', 'ultimate-author-box');
             update_user_meta($user_id, 'uab_custom_description', $custom_bio_box);
         }
 
-        /* All Widget related Code @since 1.0 */
-
-        /* Create our own widget area to store all mega menu widgets. All widgets from all menus are stored here, they are filtered later to ensure the correct widgets show under the correct menu item. @since 1.0 */
-
-        public function register_sidebar()
-        {
-
-            register_sidebar(
-                array(
-                    'id' => 'uab-tab-widget',
-                    'name' => __("Ultimate Author Box Widget area", 'ultimate-author-box'),
-                    'description' => __("Do not manually edit this area.", 'ultimate-author-box')
-                )
-            );
-        }
 
         /* Clear the cache @since 1.0 */
 
