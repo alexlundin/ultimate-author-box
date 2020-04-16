@@ -62,9 +62,7 @@ if (!class_exists('Ultimate_Author_Box')) {
             add_shortcode('ultimate_author_box_widget', array($this, 'ultimate_author_box_widget'));
 
             add_filter('the_content', array($this, 'uab_add_post_content'), 0);
-            /* Contact Form Actions */
-            add_action('wp_ajax_uab_sendmail', array($this, 'uab_form_submission'));
-            add_action('wp_ajax_nopriv_uab_sendmail', array($this, 'uab_form_submission'));
+
             /* Author PopUp Actions */
             add_action('wp_ajax_uab_show_popup', array($this, 'uab_show_popup'));
             add_action('wp_ajax_nopriv_uab_show_popup', array($this, 'uab_show_popup'));
@@ -871,55 +869,6 @@ if (!class_exists('Ultimate_Author_Box')) {
             }
         }
 
-        /* Mail Submission function */
-
-        function uab_form_submission()
-        {
-            if (check_ajax_referer('uab_form_nonce', '_wpnonce')) {
-                $to = sanitize_text_field($_POST['to']);
-                $from = sanitize_text_field($_POST['from']);
-                $email = sanitize_text_field($_POST['email']);
-                $phone = sanitize_text_field($_POST['phone']);
-                $subject = sanitize_text_field($_POST['subject']);
-                $message = sanitize_text_field($_POST['message']);
-                $sent_message = __('Hello there, 
-
-You have received an email from your site. 
-
-Details below: 
-Name: #name 
-Email: #email 
-Phone: #phone
-Subject: #subject 
-Message: #message 
-
-Thank you!  ', 'ultimate-author-box');
-                $orginalstr = array('#name', '#email', 'phone', '#subject', '#message');
-                $replacestr = array($from, $email, $phone, $subject, $message);
-                $email_message = str_replace($orginalstr, $replacestr, $sent_message);
-                $email_message = $this->sanitize_escaping_linebreaks($email_message);
-
-                $header = array();
-                $headers[] = 'Content-Type: text/html; charset=UTF-8';
-                $headers[] = 'From:' . $from . ' ' . '<' . $email . '>';
-
-                $email_check = wp_mail($to, $subject, $email_message, $headers);
-                if ($email_check) {
-                    echo "success";
-                } else {
-                    echo "error";
-                }
-                die();
-            }
-        }
-
-        /* Creating format for textarea input */
-
-        function sanitize_escaping_linebreaks($text)
-        {
-            $text = implode("<br \>", explode("\n", $text));
-            return $text;
-        }
 
         function uab_show_popup()
         {
