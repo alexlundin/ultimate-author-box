@@ -189,74 +189,11 @@ if (!class_exists('Ultimate_Author_Box')) {
 
         function uab_register_frontend_assets()
         {
-//			wp_enqueue_style( 'jquery-ui-css', UAB_CSS_DIR . '/jquery-ui.css', array(), '1.12.1' );
-//			wp_enqueue_style( 'uab-slick-style', UAB_JS_DIR . '/slick/slick.css', array(), '1.0.6' );
-//			wp_enqueue_style( 'uab-slick-thmes-style', UAB_JS_DIR . '/slick/slick-theme.css', array(), '1.0.6' );
-            /* wp_enqueue_style( 'uab-owl-style', UAB_JS_DIR . '/owl/assets/owl.carousel.css', array(),'2.2.1'); */
+
 
             wp_enqueue_style('uab-frontend-style', UAB_CSS_DIR . '/frontend.css', array(), UAB_VERSION);
             wp_enqueue_style('uab-frontend-responsive-style', UAB_CSS_DIR . '/uab-responsive.css', array(), UAB_VERSION);
-
-            $uab_general_settings = get_option('uap_general_settings');
-            switch ($uab_general_settings["uab_template"]) {
-                case "uab-template-1" :
-                    wp_enqueue_style('uab-template-1', UAB_CSS_DIR . '/uab-template-1.css', array(), UAB_VERSION);
-                    break;
-                case "uab-template-2" :
-                    wp_enqueue_style('uab-template-2', UAB_CSS_DIR . '/uab-template-2.css', array(), UAB_VERSION);
-                    break;
-                case "uab-template-3" :
-                    wp_enqueue_style('uab-template-3', UAB_CSS_DIR . '/uab-template-3.css', array(), UAB_VERSION);
-                    break;
-                case "uab-template-4" :
-                    wp_enqueue_style('uab-template-4', UAB_CSS_DIR . '/uab-template-4.css', array(), UAB_VERSION);
-                    break;
-                case "uab-template-5" :
-                    wp_enqueue_style('uab-template-5', UAB_CSS_DIR . '/uab-template-5.css', array(), UAB_VERSION);
-                    break;
-                case "uab-template-6" :
-                    wp_enqueue_style('uab-template-6', UAB_CSS_DIR . '/uab-template-6.css', array(), UAB_VERSION);
-                    break;
-                case "uab-template-7" :
-                    wp_enqueue_style('uab-template-7', UAB_CSS_DIR . '/uab-template-7.css', array(), UAB_VERSION);
-                    break;
-                case "uab-template-8" :
-                    wp_enqueue_style('uab-template-8', UAB_CSS_DIR . '/uab-template-8.css', array(), UAB_VERSION);
-                    break;
-                case "uab-template-9" :
-                    wp_enqueue_style('uab-template-9', UAB_CSS_DIR . '/uab-template-9.css', array(), UAB_VERSION);
-                    break;
-                case "uab-template-10" :
-                    wp_enqueue_style('uab-template-10', UAB_CSS_DIR . '/uab-template-10.css', array(), UAB_VERSION);
-                    break;
-                case "uab-template-11" :
-                    wp_enqueue_style('uab-template-11', UAB_CSS_DIR . '/uab-template-11.css', array(), UAB_VERSION);
-                    break;
-                case "uab-template-12" :
-                    wp_enqueue_style('uab-template-12', UAB_CSS_DIR . '/uab-template-12.css', array(), UAB_VERSION);
-                    break;
-                case "uab-template-13" :
-                    wp_enqueue_style('uab-template-13', UAB_CSS_DIR . '/uab-template-13.css', array(), UAB_VERSION);
-                    break;
-                case "uab-template-14" :
-                    wp_enqueue_style('uab-template-14', UAB_CSS_DIR . '/uab-template-14.css', array(), UAB_VERSION);
-                    break;
-                case "uab-template-15" :
-                    wp_enqueue_style('uab-template-15', UAB_CSS_DIR . '/uab-template-15.css', array(), UAB_VERSION);
-                    break;
-                case "uab-template-16" :
-                    wp_enqueue_style('uab-template-16', UAB_CSS_DIR . '/uab-template-16.css', array(), UAB_VERSION);
-                    break;
-                case "uab-template-17" :
-                    wp_enqueue_style('uab-template-17', UAB_CSS_DIR . '/uab-template-17.css', array(), UAB_VERSION);
-                    break;
-                case "uab-template-18" :
-                    wp_enqueue_style('uab-template-18', UAB_CSS_DIR . '/uab-template-18.css', array(), UAB_VERSION);
-                    break;
-                case "uab-template-19" :
-                    wp_enqueue_style('uab-template-19', UAB_CSS_DIR . '/uab-template-19.css', array(), UAB_VERSION);
-                    break;
-            }
+            wp_enqueue_style('uab-frontend-template', UAB_CSS_DIR . '/uab-template-1.css', array(), UAB_VERSION);
 
             wp_enqueue_style('uab-fontawesome-css', UAB_CSS_DIR . '/fontawesome.css', UAB_VERSION);
             wp_enqueue_style('uab-fa-solid-css', UAB_CSS_DIR . '/fa-solid.css', UAB_VERSION);
@@ -267,16 +204,6 @@ if (!class_exists('Ultimate_Author_Box')) {
             wp_enqueue_script('ip-linearicons', 'https://cdn.linearicons.com/free/1.0.0/svgembedder.min.js');
             wp_enqueue_style('ip-linearicons-css', 'https://cdn.linearicons.com/free/1.0.0/icon-font.min.css');
 
-            /* wp_enqueue_script( 'jquery1', UAB_JS_DIR . '/jquery.js', array(), '1.12.4' ); */
-            wp_enqueue_script('jquery-ui', UAB_JS_DIR . '/jquery-ui.js', array('jquery'), '1.12.1');
-            wp_enqueue_script('uab-slick-js', UAB_JS_DIR . '/slick/slick.js', array('jquery'), '1.0.6');
-            /* wp_enqueue_script( 'uab-owl-js', UAB_JS_DIR . '/owl/owl.carousel.js', array('jquery'),'2.2.1'); */
-            wp_enqueue_script('uab-frontend-script', UAB_JS_DIR . '/frontend.js', array('jquery', 'jquery-ui', 'uab-slick-js'), UAB_VERSION);
-            wp_localize_script('uab-frontend-script', 'uab_js_obj', array(
-                'ajax_url' => admin_url('admin-ajax.php'),
-                '_wpnonce' => wp_create_nonce('uab_form_nonce'),
-                '_wpnonce_popup' => wp_create_nonce('uab_popup_nonce')
-            ));
         }
 
 
