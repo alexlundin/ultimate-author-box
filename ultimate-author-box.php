@@ -43,8 +43,7 @@ if (!class_exists('Ultimate_Author_Box')) {
             add_action('wp_enqueue_scripts', array($this, 'uab_register_frontend_assets'));
             /* Register Ultimate Author Box Dashboard Menu */
             add_action('admin_menu', array($this, 'uab_menu'));
-            /* Register Ultimate Author Box Dashboard Sub-menu */
-            add_action('admin_menu', array($this, 'uab_add_about_sub_menu_page'));
+
             /* Register additional support link in plugin listings */
             add_filter('plugin_action_links', array($this, 'uab_plugin_action_link'), 10, 5);
             add_action('show_user_profile', array($this, 'uab_profile_fields'));
@@ -239,21 +238,6 @@ if (!class_exists('Ultimate_Author_Box')) {
         }
 
 
-        /* Register About Sub Menu */
-
-        function uab_add_about_sub_menu_page()
-        {
-            add_submenu_page(
-                'ultimate-author-box', __('More WordPress Stuff', 'ultimate-author-box'), __('More WordPress Stuff', 'ultimate-author-box'), 'edit_posts', 'ultimate-author-box-about', array($this, 'uab_ultimate_author_box_about'));
-        }
-
-
-        /* About Page Callback */
-
-        function uab_ultimate_author_box_about()
-        {
-            include(UAB_PATH . '/inc/backend/uab-boards/uap-about.php');
-        }
 
         /* Load Default General Settings */
 
