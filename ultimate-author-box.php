@@ -61,9 +61,6 @@ if (!class_exists('Ultimate_Author_Box')) {
 
             add_filter('the_content', array($this, 'uab_add_post_content'), 0);
 
-            /* Author PopUp Actions */
-            add_action('wp_ajax_uab_show_popup', array($this, 'uab_show_popup'));
-            add_action('wp_ajax_nopriv_uab_show_popup', array($this, 'uab_show_popup'));
             /* Register Widgets */
             add_action('widgets_init', array($this, 'register_uap_author_box_widget'));
             /* Register Meta Box */
@@ -147,16 +144,13 @@ if (!class_exists('Ultimate_Author_Box')) {
             wp_enqueue_style('uab-font-awesome-style', UAB_CSS_DIR . '/font-awesome.min.css', array(), UAB_VERSION);
 
             wp_enqueue_style('uab-codemirror-style', UAB_CSS_DIR . '/codemirror.css', array(), UAB_VERSION);
-            /* wp_enqueue_style( 'uab-jquery-selectbox', UAB_CSS_DIR . '/jquery.selectbox.css', array(), UAB_VERSION ); */
+
             wp_enqueue_style('ultimate-author-box-backend-style', UAB_CSS_DIR . '/backend.css', array(), UAB_VERSION);
-            /* wp_enqueue_style( 'uab-bxslider-css', UAB_CSS_DIR . '/jquery.bxslider.css', array(), UAB_VERSION ); */
+
             wp_enqueue_script('uab-codemirror-script', UAB_JS_DIR . '/codemirror.js', array(), '5.22.0');
             wp_enqueue_script('uab-codemirror-css-js', UAB_JS_DIR . '/css.js', array('jquery', 'uab-codemirror-script'), UAB_VERSION);
             wp_enqueue_script('jquery-ui', UAB_JS_DIR . '/jquery-ui.js', array('jquery'), '1.12.1');
-            // wp_enqueue_script( 'uab-ckeditor-js', UAB_JS_DIR . '/ckeditor/ckeditor.js', array( 'jquery' ), UAB_VERSION );
-            // wp_enqueue_script( 'uab-ckfinder-js', UAB_JS_DIR . '/ckfinder/ckfinder.js', array( 'jquery' ), UAB_VERSION );
-            /* wp_enqueue_script( 'uab-bxslider-js', UAB_JS_DIR . '/jquery.bxslider.js', array( 'jquery' ), UAB_VERSION ); */
-            /* wp_enqueue_script( 'uab-jquery-selectbox-js', UAB_JS_DIR . '/jquery.selectbox-0.2.min.js', array('jquery'), UAB_VERSION ); */
+
             wp_enqueue_style('wp-color-picker');
             wp_enqueue_script('uab-color-picker-js', UAB_JS_DIR . '/wp-color-picker-alpha.js', array('jquery', 'wp-color-picker'), UAB_VERSION);
             wp_enqueue_script('uab-backend-script', UAB_JS_DIR . '/backend.js', array('jquery', 'jquery-ui', 'jquery-ui-dialog', 'uab-codemirror-script', 'wp-color-picker'), UAB_VERSION);
@@ -259,7 +253,7 @@ if (!class_exists('Ultimate_Author_Box')) {
                     $uab_general_settings['uab_default_message'] = sanitize_text_field($_POST['uab_default_message']);
                     /* $uab_general_settings['uab_small_device'] = (isset($_POST['uab_small_device'])?1:0); */
                     $uab_general_settings['uab_link_target_option'] = sanitize_text_field($_POST['uab_link_target_option']);
-                    $uab_general_settings['uab_show_popup'] = (isset($_POST['uab_show_popup']) ? 1 : 0);
+
                     $uab_general_settings['uab_disable_email'] = (isset($_POST['uab_disable_email']) ? 1 : 0);
                     $uab_general_settings['uab_disable_coauthor'] = (isset($_POST['uab_disable_coauthor']) ? 1 : 0);
                     $uab_general_settings['uab_coauthor_header_text'] = (isset($_POST['uab_coauthor_header_text']) && !empty($_POST['uab_coauthor_header_text'])) ? sanitize_text_field($_POST['uab_coauthor_header_text']) : esc_html('Co Authors', 'ultimate_author_box');
@@ -303,8 +297,6 @@ if (!class_exists('Ultimate_Author_Box')) {
             $uab_general_settings['uab_default_message'] = __('Sorry! The Author has not filled his profile.', 'ultimate-author-box');
             /* $uab_general_settings['uab_small_device'] = 0; */
             $uab_general_settings['uab_link_target_option'] = '_blank';
-            $uab_general_settings['uab_show_popup'] = 1;
-            $uab_general_settings['uab_disable_customizer'] = 1;
 
             $uab_general_settings['uab_template'] = 'uab-template-1';
             $uab_general_settings['uab_custom_template'] = 'uab-template-1';
@@ -849,160 +841,6 @@ if (!class_exists('Ultimate_Author_Box')) {
         }
 
 
-        function uab_show_popup()
-        {
-            if (check_ajax_referer('uab_popup_nonce', '_wpnonce_popup')) {
-                $author_id = sanitize_text_field($_POST['author_id']);
-                $uab_profile_data = maybe_unserialize(get_the_author_meta('uab_profile_data', $author_id));
-                $uab_general_settings = get_option('uap_general_settings');
-                $uab_select_image_option = isset($uab_profile_data[0]['uab_image_select']) ? $uab_profile_data[0]['uab_image_select'] : 'uab_gravatar';
-                _e('<div class="uab-frontend-popup-wrapper">
-          <div class="uab-frontend-popup-content">
-            <span class="uab-popup-close">&times;</span>
-            <div class="uab-pop-up-wrapper-first uab-clearfix">
-              <div class="uab-popup-image-wrapper"><div class="uab-author-profile-pic"><div class="uap-profile-image uap-profile-image-square">');
-                switch ($uab_select_image_option) {
-                    case 'uab_facebook':
-                        if (!empty($uab_profile_data[0]['uab_profile_image_facebook'])) {
-                            _e('<img src="//graph.facebook.com/' . esc_attr($uab_profile_data[0]["uab_profile_image_facebook"]) . '/picture?width=200">');
-                        } else {
-                            _e(get_avatar($author_id, 200));
-                        }
-                        break;
-                    case 'uab_instagram':
-                        if (!empty($uab_profile_data[0]['uab_profile_image_instagram'])) {
-                            _e('<img src="https://instagram.com/p/' . esc_attr($uab_profile_data[0]["uab_profile_image_instagram"]) .
-                                '/media/" width=200>');
-                        } else {
-                            _e(get_avatar($author_id, 200));
-                        }
-                        break;
-                    case 'uab_twitter':
-                        if (!empty($uab_profile_data[0]['uab_profile_image_twitter'])) {
-                            _e('<img src="https://twitter.com/' . esc_attr($uab_profile_data[0]["uab_profile_image_twitter"]) . '/profile_image?size=original" width=200>');
-                        } else {
-                            _e(get_avatar($author_id, 200));
-                        }
-                        break;
-                    case 'uab_upload_image':
-                        if (!empty($uab_profile_data[0]['uab_upload_image_url'])) {
-                            _e('<img src="');
-                            esc_attr_e($uab_profile_data[0]["uab_upload_image_url"]);
-                            _e('" width="200">');
-                        } else {
-                            _e(get_avatar($author_id, 200));
-                        }
-                        break;
-                    default:
-                        _e(get_avatar($author_id, 200));
-                }
-                _e('</div></div></div><div class="uab-popup-description-wrapper "><div class="uab-display-name">');
-                _e('<a href="');
-                esc_attr_e(get_author_posts_url($author_id));
-                _e('" target="_blank">');
-                the_author_meta('display_name', $author_id);
-                _e('</a>');
-                _e('<span class="uab-user-role">');
-                $user_meta = get_userdata($author_id);
-                $user_roles = $user_meta->roles;
-                $user_role_lists = $this->get_editable_roles();
-                foreach ($user_role_lists as $user_role_list => $value) {
-                    /* echo $user_role_list; */
-                    foreach ($user_roles as $role => $val) {
-                        /* echo $val; */
-                        if ($user_role_list == $val) {
-                            _e($user_role_lists[$user_role_list]['name']);
-                        }
-                    }
-                }
-                _e('</span></div><div class="uab-company-info"><span class="uab-company-designation">');
-                _e($uab_profile_data[0]['uab_company_designation']);
-                _e('</span><span class="uab-designation-separator">&nbsp;');
-
-                if (!empty($uab_profile_data[0]['uab_company_url'])) {
-
-                    isset($uab_profile_data[0]["uab_company_separator"]) ? $author_separator = ($uab_profile_data[0]["uab_company_separator"]) : $author_separator = esc_html_(' at', 'ultimate-author-box');
-
-                    _e($author_separator);
-                    _e('&nbsp;</span><a href="' . esc_attr($uab_profile_data[0]["uab_company_url"]) . '">' . esc_html($uab_profile_data[0]["uab_company_name"]) . '</a>');
-                }
-                _e('</div><div class="uab-short-info">');
-                if ((get_the_author_meta('description', $author_id) == '' && $uab_general_settings['uab_default_bio'])) {
-                    _e($uab_general_settings['uab_default_message']);
-                } else {
-                    the_author_meta('description', $author_id);
-                }
-                _e('</div></div></div><div class="uab-pop-up-wrapper-second uab-clearfix"><div class="uab-popup-contact-wrapper"><div class="uab-short-contact"><div class="uab-contact-inner"><div class="uab-user-website"><i class="fa fa-globe" aria-hidden="true"></i> <a href="');
-                the_author_meta('url', $author_id);
-                _e('" target="_blank">');
-                the_author_meta('url', $author_id);
-                _e('</a></div></div>');
-                if ($uab_email_disable):
-                    _e('<div class="uab-contact-inner"><div class="uab-user-email"><i class="fa fa-envelope" aria-hidden="true"></i> <a href="mailto:');
-                    _e($this->encode_email(get_the_author_meta('email', $author_id)) . '">');
-                    _e($this->encode_email(get_the_author_meta('email', $author_id)));
-                    _e('</a></div></div>');
-                endif;
-                if (isset($uab_profile_data[0]['uab_company_phone']) && !empty($uab_profile_data[0]['uab_company_phone'])) {
-                    _e('<div class="uab-contact-inner"><div class="uab-user-phone"><i class="fa fa-phone" aria-hidden="true"></i> <a href="tel:');
-                    $author_phone = isset($uab_profile_data[0]['uab_company_phone']) ? $uab_profile_data[0]['uab_company_phone'] : '';
-                    _e($author_phone);
-                    _e('">');
-                    _e($author_phone);
-                    _e('</a></div></div>');
-                }
-                _e('</div><div class="uab-social-icons"><ul id="uap-social-outlets-fields">');
-                $uab_social_icons = maybe_unserialize(get_the_author_meta('uab_social_icons', $author_id));
-                if (!empty($uab_social_icons)) {
-                    foreach ($uab_social_icons as $socialname => $innerarray) {
-                        if (!empty($uab_social_icons[$socialname]['url'])) {
-                            _e('<li class="uab-icon-');
-                            esc_attr_e($uab_social_icons[$socialname]['label']);
-                            _e('"><a href="');
-                            _e($uab_social_icons[$socialname]['url']);
-                            _e('" target="');
-                            _e($uab_general_settings['uab_link_target_option']);
-                            _e('"><i class="fa fa-');
-                            _e($uab_social_icons[$socialname]['icon']);
-                            _e('"></i></a>');
-                            _e('<div class="uab-frontend-tooltip">');
-                            _e($uab_social_icons[$socialname]['url']);
-                            _e('</div></li>');
-                        }
-                    }
-                }
-                _e('</ul></div></div><div class="uab-popup-recent-wrapper"><div class="uab-post-title">');
-                _e('Latest Posts', 'ultimate-author-box');
-                _e('</div><ul>');
-                $recent = get_posts(array(
-                    'author' => $author_id,
-                    'orderby' => 'date',
-                    'order' => 'desc',
-                    'numberposts' => -1,
-                ));
-                $loop_counter = 0;
-                if ($recent) {
-                    foreach ($recent as $post) {
-                        if ($loop_counter < 4) {
-                            if (has_post_thumbnail($post->ID)) {
-                                _e('<li><div class="uab-post-image" title="');
-                                _e($post->post_title);
-                                _e('"><a href="');
-                                _e(get_permalink($post->ID));
-                                _e('">');
-                                _e(get_the_post_thumbnail($post->ID, 'thumbnail'));
-                                _e('</a></div></li>');
-                                $loop_counter++;
-                            }
-                        }
-                    }
-                } else {
-                    _e('The User does not have any posts', 'ultimate-author-box');
-                }
-                _e('</ul></div></div></div></div></div></div></div>');
-            }
-            wp_die();
-        }
 
         function return_cache_period()
         {

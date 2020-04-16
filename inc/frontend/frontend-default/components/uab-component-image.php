@@ -13,12 +13,6 @@
 	}else{
 		$uap_profile_image_shape = 'uap-profile-image-square';
 	}
-	$show_popup = '';
-	if(isset($uab_general_settings['uab_show_popup']) && !empty($uab_general_settings['uab_show_popup']) && $uab_general_settings['uab_show_popup'] == '1'){
-		$show_popup = ' uab-show-popup';
-	} else{
-		$show_popup = '';
-	}
 
 		?>
 	<div class="uap-profile-image <?php esc_attr_e($uap_profile_image_shape); esc_attr_e($show_popup); ?>">

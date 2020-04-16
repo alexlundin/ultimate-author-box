@@ -389,22 +389,7 @@ if (isset($_GET['cache-message'])) { ?>
                 </select>
             </div>
         </div>
-        <!--@since version 1.0.5 -->
-        <div class="uab-fontend-popup uab-content-wrapper">
-            <div class="uab-label-info-wrap">
-                <label><?php _e('Show Author Info Pop-up', 'ultimate-author-box'); ?></label>
-                <span class="uab-info"><?php _e('Choose whether to show Author Info Pop-up on Author Box image click', 'ultimate-author-box'); ?></span>
-            </div>
-            <div class="uab-slide-checkbox-wrapper">
-                <div class="uab-slide-checkbox-wrapper-inner">
-                    <div class="uab-slide-checkbox">
-                        <input type="checkbox" id="uab-show-popup"
-                               name="uab_show_popup" <?php if (!empty($uab_general_settings['uab_show_popup'])) echo 'checked'; ?>>
-                        <label for="uab-show-popup"></label>
-                    </div>
-                </div>
-            </div>
-        </div>
+
 
         <!--@since version 1.0.5 -->
         <div class="uab-fontend-popup uab-content-wrapper">
