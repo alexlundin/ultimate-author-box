@@ -278,14 +278,4 @@ if ($uab_general_settings['uab_disable_uab']){
 		} 
 	}	
 	?>
-
-	<?php
-
-	if ($uab_general_settings['uab_custom_css']){
-		echo '<style>';
-		_e($uab_general_settings['uab_custom_css']);
-		echo '</style>';
-
-	}
-	?>
 	</div><?php

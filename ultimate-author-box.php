@@ -408,8 +408,6 @@ if (!class_exists('Ultimate_Author_Box')) {
                     $uab_general_settings['uab_twitter_token_secret'] = sanitize_text_field($_POST['uab_twitter_token_secret']);
                     $uab_general_settings['uab_twitter_cache_period'] = sanitize_text_field($_POST['uab_twitter_cache_period']);
                     $uab_general_settings['uab_template'] = sanitize_text_field($_POST['uab_template']);
-                    $uab_general_settings['uab_enable_custom_css'] = (isset($_POST['uab_enable_custom_css']) ? 1 : 0);
-                    $uab_general_settings['uab_custom_css'] = stripslashes(wp_kses_post($_POST['uab_custom_css']));
 
                     $uab_general_settings['uab_custom_template'] = sanitize_text_field($_POST['uab_custom_template']);
                     $uab_general_settings['uab_primary_color'] = sanitize_text_field($_POST['uab_primary_color']);
@@ -455,8 +453,6 @@ if (!class_exists('Ultimate_Author_Box')) {
             $uab_general_settings['uab_twitter_token_secret'] = '';
             $uab_general_settings['uab_twitter_cache_period'] = '1';
             $uab_general_settings['uab_template'] = 'uab-template-1';
-            $uab_general_settings['uab_enable_custom_css'] = 1;
-            $uab_general_settings['uab_custom_css'] = '';
             $uab_general_settings['uab_custom_template'] = 'uab-template-1';
             $uab_general_settings['uab_primary_color'] = '';
             $uab_general_settings['uab_secondary_color'] = '';
