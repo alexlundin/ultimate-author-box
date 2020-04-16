@@ -55,13 +55,11 @@ if (!class_exists('Ultimate_Author_Box')) {
             add_action('admin_post_uab_settings_save_action', array($this, 'uab_save_settings'));
             /* General Settings Restore */
             add_action('admin_post_uab_restore_settings', array($this, 'uab_restore_settings'));
-            /* Twitter Cache Clear */
             /* action to delete cache */
             add_action('admin_post_uab_delete_cache', array($this, 'uab_delete_cache'));
             register_activation_hook(__FILE__, array($this, 'uab_load_default_settings'));
             add_shortcode('ultimate_author_box', array($this, 'ultimate_author_box'));
             add_shortcode('ultimate_author_box_widget', array($this, 'ultimate_author_box_widget'));
-            add_shortcode('ultimate_author_list_widget', array($this, 'ultimate_author_list_widget'));
 
             add_filter('the_content', array($this, 'uab_add_post_content'), 0);
             /* Contact Form Actions */
@@ -386,124 +384,6 @@ if (!class_exists('Ultimate_Author_Box')) {
             return $form_html;
         }
 
-        function ultimate_author_list_widget($atts)
-        {
-            ob_start();
-            include(UAB_PATH . '/inc/frontend/uap-author-list-widget-shortcode.php');
-            $form_html = ob_get_contents();
-            ob_end_clean();
-            return $form_html;
-        }
-
-        /*
-		function ultimate_subscription() {
-			ob_start();
-			?>
-			<form action="http://mailz.imarketmarketing.com/webform-submit-html" method="post" class="webform"  id="webform">
-			    <div class="form9-bg" id="demo-preview" style="background-image: url("http://mailz.imarketmarketing.com/assets/media_image/form7-bg.png");">
-					 <div class="row">
-						<div class="col-md-12 col-sm-12 col-xs-12">
-							<div class="col-md-12 col-sm-12 col-xs-12 form_area9">
-								<div class="ribbon"><span contenteditable="false">FREE REPORT!</span></div>
-								<div class="mdem25 smem15 xsem12 text-center w600 mt16 xsmt15 whitetext" contenteditable="false" data-gramm_id="19dffb74-584d-eba2-6d9e-56a58955fbf1" data-gramm="true" spellcheck="false" data-gramm_editor="true"><font color="#2a2a2a">IM COACHING</font><div><font size="6" color="#2a2a2a">Let Me Coach You!</font></div></div><grammarly-btn><div data-reactroot="" class="_e725ae-textarea_btn _e725ae-show _e725ae-anonymous _e725ae-field_hovered" style="z-index: 2; transform: translate(313.5px, 117.547px);"><div class="_e725ae-transform_wrap"><div title="Protected by Grammarly" class="_e725ae-status"> </div></div></div></grammarly-btn>
-								<div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1 mt7 xsmt5">
-									<div class="namefield">
-										<div class="mdem11 smem11 xsem10 w300 whitetext" contenteditable="false"><font color="#2a2a2a">Full Name</font></div>
-										<div class="mdem11 smem11 xsem10"><input type="text" name="name" class="fieldinput" placeholder="Name"></div>
-									</div>
-									<div class="copydiv">
-										<div class="mdem11 smem11 xsem10 w300 whitetext fieldname" contenteditable="false"><font color="#2a2a2a">Email Address</font></div>
-										<div class="mdem12 smem11 xsem10"><input type="text" name="email" class="fieldinput" placeholder="Email"></div>
-									</div>
-									<div class="mdem12 smem12 xsem11 mt5 xsmt5 w400"><a href="#" class="form-btn9" contenteditable="false" id="rect">Sign Up</a></div>
-								</div>
-							</div>
-						</div>
-					</div>
-			    </div><input name="form_id" type="hidden" value="56">
-			</form>
-			<?php
-			$form_html = ob_get_contents();
-			ob_end_clean();
-			return $form_html;
-		}
-
-		function uab_get_image( $atts ) {
-			ob_start();
-			$form_html = ob_get_contents();
-
-			$uab_shortcode_atts = $atts = shortcode_atts(
-					array(
-				'user_id' => get_the_author_meta( 'ID' ),
-					), $atts, 'uab_get_image' );
-
-			$author_id = $uab_shortcode_atts['user_id'];
-			$uab_profile_data = maybe_unserialize( get_the_author_meta( 'uab_profile_data', $author_id ) );
-			_e( '<div class="uab_get_image">' );
-			include(UAB_PATH . '/inc/frontend/frontend-default/components/uab-component-image.php');
-			_e( '</div>' );
-			$form_html = ob_get_contents();
-			ob_end_clean();
-			return $form_html;
-		}
-
-		function uab_get_company_phone( $atts ) {
-			ob_start();
-			$form_html = ob_get_contents();
-
-			$uab_shortcode_atts = $atts = shortcode_atts(
-					array(
-				'user_id' => get_the_author_meta( 'ID' ),
-					), $atts, 'uab_get_company_phone' );
-
-			$author_id = $uab_shortcode_atts['user_id'];
-			$uab_profile_data = maybe_unserialize( get_the_author_meta( 'uab_profile_data', $author_id ) );
-			$author_phone = isset( $uab_profile_data[0]['uab_company_phone'] ) ? $uab_profile_data[0]['uab_company_phone'] : '';
-			_e( $author_phone );
-			$form_html = ob_get_contents();
-			ob_end_clean();
-			return $form_html;
-		}
-
-		function uab_get_company_url( $atts ) {
-			ob_start();
-			$form_html = ob_get_contents();
-
-			$uab_shortcode_atts = $atts = shortcode_atts(
-					array(
-				'user_id' => get_the_author_meta( 'ID' ),
-					), $atts, 'uab_get_company_url' );
-
-			$author_id = $uab_shortcode_atts['user_id'];
-			$uab_profile_data = maybe_unserialize( get_the_author_meta( 'uab_profile_data', $author_id ) );
-			$author_url = isset( $uab_profile_data[0]['uab_company_url'] ) ? $uab_profile_data[0]['uab_company_url'] : '';
-			_e( $author_url );
-			$form_html = ob_get_contents();
-			ob_end_clean();
-			return $form_html;
-		}
-
-		function uab_get_social( $atts ) {
-			ob_start();
-			$form_html = ob_get_contents();
-
-			$uab_shortcode_atts = $atts = shortcode_atts(
-					array(
-				'user_id' => get_the_author_meta( 'ID' ),
-					), $atts, 'uab_get_social' );
-
-			$author_id = $uab_shortcode_atts['user_id'];
-			$uab_template_type = 'uab-template-6';
-			$uab_general_settings = get_option( 'uap_general_settings' );
-			$uab_social_icons = maybe_unserialize( get_the_author_meta( 'uab_social_icons', $author_id ) );
-			_e( '<div class="uab_get_social">' );
-			include(UAB_PATH . '/inc/frontend/frontend-default/components/uab-component-social.php');
-			_e( '</div>' );
-			$form_html = ob_get_contents();
-			ob_end_clean();
-			return $form_html;
-		}
-		*/
         /* Add Author Box To post content */
 
         function uab_add_post_content($content)
