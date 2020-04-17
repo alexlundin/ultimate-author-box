@@ -1,31 +1,8 @@
-.uab-template-1 .uab-tabs {
-    border-bottom: 1px solid #e6e6e6;
-}
-
-.uab-template-1 .uab-tabs a,
-.uab-template-1 .uab-tabs li {
-    background-color: transparent;
-    color: #3c98ca;
-    font-size: 14px;
-    text-transform: uppercase;
-    background: #fff;
-    margin-bottom: -2px;
-    border-bottom: 1px solid #e6e6e6;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
-    font-family: 'Raleway', sans-serif;
-    font-weight: 600;
-    padding: 13px 25px;
-}
-
-.uab-template-1 .uab-tabs li.uab-current {
-    border: 1px solid #e6e6e6;
-    border-bottom: 1px solid transparent;
-}
-
 .uab-template-1 .uab-tab-content {
-    padding: 33px 0;
+    padding: 33px;
     background: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 10px;
 }
 
 .uab-template-1 .uab-author-profile-pic {

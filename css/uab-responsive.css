@@ -11,18 +11,6 @@
         width: 100%;
     }
 
-    .uab-template-1 .uab-tabs a ,
-    .uab-template-1 .uab-tabs li {
-        border: 1px solid #e6e6e6;
-        -webkit-border-radius: 0;
-        border-radius: 0;
-        position: relative;
-    }
-
-    .uab-template-1 .uab-tabs li.uab-current {
-        background: #3c98ca;
-        color: #fff;
-    }
 }
 @media only screen and (max-width: 640px) {
     /*template-1*/

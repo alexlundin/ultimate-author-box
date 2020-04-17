@@ -6,20 +6,8 @@ ul.uab-tabs li {
     display: block;
 }
 
-.uab-frontend-wrapper .uab-tab-content {
-    display: none;
-}
-
-.uab-tab-content.uab-current {
-    display: block;
-}
-
 .uab-frontend-wrapper {
     text-align: left;
-}
-
-.uab-frontend-wrapper div {
-    max-width: 100%;
 }
 
 .uab-frontend-wrapper a {
@@ -76,11 +64,6 @@ table {
     border: 0;
 }
 
-.uab-frontend-wrapper * {
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
 .uab-frontend-wrapper a {
     max-width: 100%;
     word-wrap: break-word;
@@ -89,17 +72,6 @@ table {
 .uab-frontend-wrapper *:focus {
     outline: 0;
     border: 0;
-}
-
-.uab-frontend-wrapper .uab-tabs {
-    list-style: none;
-    margin: 0;
-    -webkit-margin-before: 0;
-    -webkit-margin-after: 0;
-    -webkit-margin-start: 0px;
-    -webkit-margin-end: 0px;
-    -webkit-padding-start: 0;
-    padding-left: 0;
 }
 
 .uab-clearfix:before,
