@@ -51,9 +51,9 @@ if (!class_exists('Ultimate_Author_Box')) {
             add_action('edit_user_profile_update', array($this, 'uab_save_profile_fields'));
             /* General Settings Save */
             add_action('admin_post_uab_settings_save_action', array($this, 'uab_save_settings'));
-            /* action to delete cache */
-            add_action('admin_post_uab_delete_cache', array($this, 'uab_delete_cache'));
-            register_activation_hook(__FILE__, array($this, 'uab_load_default_settings'));
+
+
+
             add_shortcode('ultimate_author_box', array($this, 'ultimate_author_box'));
             add_shortcode('ultimate_author_box_widget', array($this, 'ultimate_author_box_widget'));
 
@@ -186,7 +186,6 @@ if (!class_exists('Ultimate_Author_Box')) {
         }
 
 
-
         /* Registering Plugin access through Dashboard */
 
         function uab_menu()
@@ -201,18 +200,6 @@ if (!class_exists('Ultimate_Author_Box')) {
         function uab_settings_page()
         {
             include(UAB_PATH . '/inc/backend/uap-settings.php');
-        }
-
-
-
-        /* Load Default General Settings */
-
-        function uab_load_default_settings()
-        {
-            $default_settings = $this->get_default_settings();
-            if (!get_option('uap_general_settings')) {
-                update_option('uap_general_settings', $default_settings);
-            }
         }
 
         /* Save General Settings */
@@ -249,7 +236,6 @@ if (!class_exists('Ultimate_Author_Box')) {
                     $uab_general_settings['uab_empty_bio'] = (isset($_POST['uab_empty_bio']) ? 1 : 0);
                     $uab_general_settings['uab_default_bio'] = (isset($_POST['uab_default_bio']) ? 1 : 0);
                     $uab_general_settings['uab_default_message'] = sanitize_text_field($_POST['uab_default_message']);
-                    /* $uab_general_settings['uab_small_device'] = (isset($_POST['uab_small_device'])?1:0); */
                     $uab_general_settings['uab_link_target_option'] = sanitize_text_field($_POST['uab_link_target_option']);
 
                     $uab_general_settings['uab_disable_email'] = (isset($_POST['uab_disable_email']) ? 1 : 0);
@@ -298,12 +284,6 @@ if (!class_exists('Ultimate_Author_Box')) {
         }
 
 
-
-        function uab_delete_cache()
-        {
-            delete_transient('uab_tweets');
-            wp_redirect(admin_url('admin.php?page=ultimate-author-box&cache-message=1'));
-        }
 
         /* Register Shortcode [ultimate_author_box user_id="1" template='uab-template-1'] */
 
@@ -820,7 +800,6 @@ if (!class_exists('Ultimate_Author_Box')) {
         }
 
 
-
         function return_cache_period()
         {
             /* please set the integer value in seconds */
@@ -1001,15 +980,22 @@ if (!class_exists('Ultimate_Author_Box')) {
                     <option value="uab_bottom" <?php if (!empty($uab_stored_meta_position[0])) selected($uab_stored_meta_position[0], 'uab_bottom'); ?>><?php _e('Bottom', 'ultimate-author-box'); ?></option>
                 </select>
             </p>
-            <!--			--><?php //if (!$uab_general_settings['uab_disable_coauthor']): ?>
+            <!--			--><?php //if (!$uab_general_settings['uab_disable_coauthor']):
+            ?>
             <!--				<p>-->
-            <!--					<label>--><?php //_e('Co Author Layout Type','ultimate-author-box'); ?><!--</label>-->
+            <!--					<label>--><?php //_e('Co Author Layout Type','ultimate-author-box');
+            ?><!--</label>-->
             <!--					<select name="uab_co_author_display_type">-->
-            <!--						<option value="list" --><?php //selected(isset($uab_co_author_display_type)?esc_attr($uab_co_author_display_type):'','list') ?><!--/>--><?php //esc_attr_e('List','ultimate-author-box') ?><!--</option>-->
-            <!--						<option value="grid" --><?php //selected(isset($uab_co_author_display_type)?esc_attr($uab_co_author_display_type):'','grid') ?><!--/>--><?php //esc_attr_e('Grid','ultimate-author-box') ?><!--</option>-->
+            <!--						<option value="list" --><?php //selected(isset($uab_co_author_display_type)?esc_attr($uab_co_author_display_type):'','list')
+            ?><!--/>--><?php //esc_attr_e('List','ultimate-author-box')
+            ?><!--</option>-->
+            <!--						<option value="grid" --><?php //selected(isset($uab_co_author_display_type)?esc_attr($uab_co_author_display_type):'','grid')
+            ?><!--/>--><?php //esc_attr_e('Grid','ultimate-author-box')
+            ?><!--</option>-->
             <!--					</select>-->
             <!--				</p>-->
-            <!--			--><?php //endif ?>
+            <!--			--><?php //endif
+            ?>
             <?php
         }
 

@@ -11,14 +11,6 @@ $uab_general_settings = empty($uab_general_settings) ? array() : $uab_general_se
     <div class="notice notice-success is-dismissible">
         <p><?php esc_html_e('Settings saved successfully', 'ultimate-author-box'); ?></p></div>
 <?php }
-if (isset($_GET['restore-message'])) { ?>
-    <div class="notice notice-success is-dismissible">
-        <p><?php esc_html_e('Settings restored to default successfully', 'ultimate-author-box'); ?></p></div>
-<?php }
-if (isset($_GET['cache-message'])) { ?>
-    <div class="notice notice-success is-dismissible">
-        <p><?php esc_html_e('Cache Cleared successfully', 'ultimate-author-box'); ?></p></div>
-<?php }
 
 ?>
 <div class="uab-settings-header-wrapper-main">
