@@ -12,7 +12,8 @@ $anchor_box = (isset($uab_shortcode_atts['anchor_box']) && (($uab_shortcode_atts
 $anchor_timeout = (isset($anchor_box) && isset($uab_shortcode_atts['anchor_timeout']))?intval($uab_shortcode_atts['anchor_timeout']):intval(1000);
 
 $uab_shortcode_atts['template'] = isset($uab_general_settings['uab_template'])?$uab_general_settings['uab_template']:'uab-template-1';
-
+$uab_custom_template = $uab_general_settings['uab_custom_template'];
+//$uab_coauthor_header_text = $uab_general_settings['uab_coauthor_header_text'];
 $uab_template_type = isset($atts['template'])?$atts['template']:$uab_general_settings['uab_template'];
 $author_id = $uab_shortcode_atts['user_id'];
 $author_description = get_the_author_meta('description',$author_id);
@@ -47,16 +48,30 @@ if ( !empty( $uab_current_user_roles->roles ) && is_array( $uab_current_user_rol
 		$uab_current_user_role = $role;
 }
 
+if (isset($uab_social_icons) && !empty($uab_social_icons)){
+	$error_flag="1";
+	foreach($uab_social_icons as $key => $val) {
+		if (!empty($val['url']))
+			$error_flag="0";
+	}
+}else{
+	$error_flag="1";
+}
+
+
+
+
 ?>
 <div id="<?php echo $uab_random_identifier; ?>" class="uab-frontend-inner-layer uab-frontend-wrapper-author-<?=intval($author_id) ?> <?=(isset($anchor_box) && !empty($anchor_box))?esc_attr('uab_anchor_box'):'' ?>" <?=isset($anchor_box)?('data-timeout="' . intval($anchor_timeout) . '"'):intval(1000) ?>>
 <?php
 
 if ($uab_general_settings['uab_disable_uab']){
-
+	//echo 'Disable author box';
 }else{
 	if ($uab_general_settings['uab_empty_bio'] && $author_description == ''){
 		//echo 'The Author Box Will not show if the author bio is empty';
-	} else {
+	}
+	else{
 		if(in_array($uab_current_user_role, $uab_access_roles) || !empty($uab_profile_data)){
 			?>
 			<div id="uab-frontend-wrapper"  class="uab-frontend-wrapper uab-template-1">
