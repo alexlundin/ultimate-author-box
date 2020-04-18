@@ -1,3 +1,17 @@
+@font-face {
+    font-family: 'Font Awesome 5 Brands';
+    font-display: swap;
+    font-style: normal;
+    font-weight: normal;
+    src: url("fonts/fa-brands-400.woff2") format("woff2"),
+    url("fonts/fa-brands-400.woff") format("woff")}
+
+.fab {
+    font-family: 'Font Awesome 5 Brands';
+    font-style: normal;
+}
+
+
 
 ul.uab-tabs a,
 ul.uab-tabs li {
@@ -158,9 +172,6 @@ table {
     margin-bottom: 10px;
 }
 
-
-/*template-3*/
-
 .uab-abw-wrapper.template-3 {
     margin: 15px auto;
 }
@@ -215,9 +226,10 @@ table {
 }
 
 .uab-abw-wrapper.template-2 .uab-abw-social-wrapper ul {
-    margin: 0;
-    margin-top: 20px;
+    margin: 20px 0 0;
     padding: 0;
+    display: flex;
+    justify-content: center;
 }
 
 .uab-abw-wrapper.template-2 .uab-abw-social-wrapper ul li {
@@ -226,7 +238,6 @@ table {
 }
 
 .uab-abw-wrapper.template-2 .uab-abw-social-wrapper ul li a {
-    display: block;
     width: 35px;
     height: 35px;
     line-height: 35px;
@@ -236,6 +247,9 @@ table {
     border: 1px solid #5ebdc7;
     color: #5ebdc7;
     font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     -webkit-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
 }
@@ -244,7 +258,10 @@ table {
     color: #fff;
     background-color: #5ebdc7;
 }
-
+.uab-abw-social-wrapper ul li a svg {
+    width: 16px;
+    height: 16px;
+}
 /*template 1*/
 
 .uab-abw-wrapper.template-1 {
@@ -319,34 +336,9 @@ table {
     color: #fff;
 }
 
-.uab-abw-wrapper .template-3 .uap-profile-image img {
-    margin-right: 50px;
-}
 
-.uab-abw-wrapper .uap-profile-image img {
-    display: block;
-    margin: 0 auto;
-    max-width: 200px;
-    height: 200px;
-    object-fit: cover;
-
-}
 
 @media (max-width: 560px) {
-    .uab-abw-wrapper.template-3 {
-        /*max-width: 383px;*/
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 100%;
-        margin: 15px auto;
-        text-align: center;
-        text-align: center;
-        padding: 25px;
-        background-color: #fff;
-        border: 1px solid #ddd;
-        line-height: 1.5;
-    }
 
     .uab-abw-wrapper .uap-profile-image img {
         margin-right: auto;

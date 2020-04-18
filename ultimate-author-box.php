@@ -174,15 +174,6 @@ if (!class_exists('Ultimate_Author_Box')) {
             wp_enqueue_style('uab-frontend-responsive-style', UAB_CSS_DIR . '/uab-responsive.css', array(), UAB_VERSION);
             wp_enqueue_style('uab-frontend-template', UAB_CSS_DIR . '/uab-template-1.css', array(), UAB_VERSION);
 
-            wp_enqueue_style('uab-fontawesome-css', UAB_CSS_DIR . '/fontawesome.css', UAB_VERSION);
-            wp_enqueue_style('uab-fa-solid-css', UAB_CSS_DIR . '/fa-solid.css', UAB_VERSION);
-            wp_enqueue_style('uab-fa-regular-css', UAB_CSS_DIR . '/fa-regular.css', UAB_VERSION);
-            wp_enqueue_style('uab-fa-brands-css', UAB_CSS_DIR . '/fa-brands.css', UAB_VERSION);
-            wp_enqueue_style('uab-font-awesome-style', UAB_CSS_DIR . '/font-awesome.min.css', array(), UAB_VERSION);
-
-            wp_enqueue_script('ip-linearicons', 'https://cdn.linearicons.com/free/1.0.0/svgembedder.min.js');
-            wp_enqueue_style('ip-linearicons-css', 'https://cdn.linearicons.com/free/1.0.0/icon-font.min.css');
-
         }
 
 
