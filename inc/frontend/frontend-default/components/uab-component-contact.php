@@ -5,20 +5,11 @@
     $author_phone = isset($uab_profile_data[0]['uab_company_phone']) ? $uab_profile_data[0]['uab_company_phone'] : '';
     $uab_email_disable = isset($uab_profile_data[0]['uab-email-disable']) ? 1 : 0;
 
-    $author_website_label = (!empty($uab_profile_data[0]['uab_site_label'])
-        && ($uab_template_type != 'uab-template-1')
-        && ($uab_template_type != 'uab-template-17')) ? esc_attr($uab_profile_data[0]['uab_site_label']) : $author_url;
+    $author_website_label =  $author_url;
 
-    $author_phone_label = (!empty($uab_profile_data[0]['uab_phone_label'])
-        && ($uab_template_type != 'uab-template-1')
-        && ($uab_template_type != 'uab-template-17')) ? esc_attr($uab_profile_data[0]['uab_phone_label']) : $author_phone;
+    $author_phone_label =  $author_phone;
 
-    $author_email_label = (!empty($uab_profile_data[0]['uab_email_label'])
-        && ($uab_email_disable == 0)
-        && ($uab_template_type != 'uab-template-1')
-        && ($uab_template_type != 'uab-template-17')) ? esc_attr($uab_profile_data[0]['uab_email_label']) : (esc_html($this->encode_email(get_the_author_meta('email', $author_id))));
-
-
+    $author_email_label = esc_html($this->encode_email(get_the_author_meta('email', $author_id)));
     ?>
     <?php if (!empty($author_url)): ?>
 
@@ -49,11 +40,5 @@
                 </div>
             </div>
         <?php endif ?>
-    <?php endif; ?>
-    <?php if (!empty($author_phone)): ?>
-
-            <div class="uab-contact-inner">
-            </div>
-      
     <?php endif; ?>
 </div>

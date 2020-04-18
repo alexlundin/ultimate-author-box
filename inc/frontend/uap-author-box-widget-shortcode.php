@@ -43,184 +43,32 @@ $follow_var = ($uab_influence_target_link == intval(1)) ? ('rel="' . esc_attr("n
 
 ?>
 <div class="uab-abw-wrapper <?php esc_attr_e($displayType); ?>">
-        <?php if ($displayType == 'template-3') { ?>
-            <div class="left">
-        <div class="uab-abw-image-wrapper">
-            <a href="<?php echo get_author_posts_url($user_id); ?>">
-                <?php $uab_select_image_option = isset($uab_profile_data[0]['uab_image_select']) ? $uab_profile_data[0]['uab_image_select'] : 'uab_gravatar';
-                switch ($uab_select_image_option) {
-                    case 'uab_facebook':
-                        if (!empty($uab_profile_data[0]['uab_profile_image_facebook'])) {
-                            ?>
-                            <!--Facebook Image-->
-                            <div class="uap-profile-image ">
-                                <img src="//graph.facebook.com/<?php esc_attr_e($uab_profile_data[0]['uab_profile_image_facebook']); ?>/picture?width=200">
-                            </div>
-                            <?php
-                        } else {
-                            ?>
-                            <div class="uap-profile-image ">
-                                <?php _e(get_avatar($user_id, 200)); ?>
-                            </div>
-                            <?php
-                        }
-                        break;
-                    case 'uab_instagram':
-                        if (!empty($uab_profile_data[0]['uab_profile_image_instagram'])) {
-                            ?>
-                            <!--Instagram Image-->
-                            <div class="uap-profile-image ">
-                                <img src="https://instagram.com/p/<?php esc_attr_e($uab_profile_data[0]['uab_profile_image_instagram']); ?>/media/"
-                                     width=200>
-                            </div>
-                            <?php
-                        } else {
-                            ?>
-                            <div class="uap-profile-image ">
-                                <?php _e(get_avatar($user_id, 200, array('extra_attr'=>'alt="author"'))); ?>
-                            </div>
-                            <?php
-                        }
-                        break;
-                    case 'uab_twitter':
-                        if (!empty($uab_profile_data[0]['uab_profile_image_twitter'])) {
-                            ?>
-                            <!--Twitter Image-->
-                            <div class="uap-profile-image ">
-                                <img src="https://twitter.com/<?php esc_attr_e($uab_profile_data[0]['uab_profile_image_twitter']); ?>/profile_image?size=original"
-                                     width=200>
-                            </div>
-                            <?php
-                        } else {
-                            ?>
-                            <div class="uap-profile-image ">
-                                <?php _e(get_avatar($user_id, 200)); ?>
-                            </div>
-                            <?php
-                        }
-                        break;
-                    case 'uab_upload_image':
-                        if (!empty($uab_profile_data[0]['uab_upload_image_url'])) {
-                            ?>
-                            <!--Custom Image-->
-                            <div class="uap-profile-image ">
-                                <img src="<?php esc_attr_e($uab_profile_data[0]['uab_upload_image_url']); ?>"
-                                     width="200">
-                            </div>
-                            <?php
-                        } else {
-                            ?>
-                            <div class="uap-profile-image ">
-                                <?php _e(get_avatar($user_id, 200)); ?>
-                            </div>
-                            <?php
-                        }
-                        break;
-                    default:
-                        ?>
-                        <!--Gravatar Image-->
-                        <div class="uap-profile-image ">
-                            <?php _e(get_avatar($user_id, 200)); ?>
-                        </div>
-                <?php
-            } ?></a>
-        </div>
-    </div>
-            <div class="right">
-                <?php if ($displayAuthorName) { ?>
-                    <div class="uab-abw-name-wrapper">
-                        <a href="<?php echo get_author_posts_url($user_id); ?>
-                            "><?php esc_html_e(the_author_meta('display_name', $user_id)); ?></a>
-                    </div>
-                <?php } ?>
-                <?php if ($displayAuthorDesignation) { ?>
-                    <?php if (isset($uab_profile_data[0]['uab_company_designation']) && !empty($uab_profile_data[0]['uab_company_designation'])) { ?>
-                        <div class="uab-abw-designation-wrapper">
-                            <?php
-                            esc_html_e($uab_profile_data[0]['uab_company_designation']);
-                            if (!empty($uab_profile_data[0]['uab_company_url'])) {
-                                _e(' at', 'ultimate-author-box');
-                                ?>
-                                <a href="<?php esc_attr_e($uab_profile_data[0]['uab_company_url']); ?>"
-                                   target="<?php esc_attr_e($uab_general_settings['uab_link_target_option']); ?>" <?= $follow_var ?>><?php esc_html_e($uab_profile_data[0]['uab_company_name']); ?></a>
-                                <?php
-                            }
-                            ?>
-                        </div>
-                    <?php } ?>
-                <?php } ?>
-                <?php if ($displayAuthorDescription) { ?>
-                    <div class="uab-abw-description-wrapper">
-                        <?php
-                        if ((get_the_author_meta('description', $user_id) == '' && $uab_general_settings['uab_default_bio'])) {
-                            esc_html_e($uab_general_settings['uab_default_message']);
-                        } else {
-                            esc_html_e(the_author_meta('description', $user_id));
-                        }
-                        ?>
-                    </div>
-                <?php } ?>
-                <?php if ($displaySocialIcons) { ?>
-                    <div class="uab-abw-social-wrapper">
-                        <ul id="uap-social-outlets-fields">
-                            <?php
-                            if (!empty($uab_social_icons)) {
-                                foreach ($uab_social_icons as $socialname => $innerarray) {
-                                    if (!empty($uab_social_icons[$socialname]['url'])) {
-                                        $uab_font_type = 'fab';
-                                        if ($uab_social_icons[$socialname]['icon'] == 'rss') {
-                                            $uab_font_type = 'fas';
-                                        }
-                                        ?>
-                                        <li>
-                                            <a href="<?php esc_attr_e($uab_social_icons[$socialname]['url']); ?>"
-                                               target="<?php esc_attr_e($uab_general_settings['uab_link_target_option']); ?>"
-                                               rel="nofollow noopener">
-                                                <i class="<?php esc_attr_e($uab_font_type); ?> fa-<?php esc_attr_e($uab_social_icons[$socialname]['icon']); ?>"></i>
-                                            </a>
-                                        </li>
-                                        <?php
-                                    }
-                                }
-                            }
+<?php if ($displayType == 'template-3') { ?>
+    <div id="<?php echo $uab_random_identifier; ?>"
+         class="uab-frontend-inner-layer uab-frontend-wrapper-author-<?= intval($author_id) ?> <?= (isset($anchor_box) && !empty($anchor_box)) ? esc_attr('uab_anchor_box') : '' ?>" <?= isset($anchor_box) ? ('data-timeout="' . intval($anchor_timeout) . '"') : intval(1000) ?>>
+        <?php
 
-                            if ($displayContacts) {
-                                $author_phone = isset($uab_profile_data[0]['uab_company_phone']) ? $uab_profile_data[0]['uab_company_phone'] : '';
-                                $author_url = get_the_author_meta('url', $user_id);
-                                $uab_email_disable = isset($uab_profile_data[0]['uab-email-disable']) ? 1 : 0;
-                                if (!empty($author_url)) {
-                                    ?>
-                                    <li class="uab-icon-web">
-                                        <a href="<?php esc_attr_e(get_the_author_meta('url', $user_id)); ?>"
-                                           target="<?php esc_attr_e($uab_general_settings['uab_link_target_option']); ?>">
-                                            <i class="fa fa-globe"></i>
-                                        </a>
-                                    </li>
-                                    <?php
-                                }
-                                ?>
-                                <?php if (!$uab_email_disable): ?>
-                                    <li class="uab-icon-mail">
-                                        <a href="mailto:<?php esc_attr_e(get_the_author_meta('email', $user_id)); ?>">
-                                            <i class="fa fa-envelope"></i>
-                                        </a>
-                                    </li>
-                                <?php endif; ?>
-<!--                                --><?php //if (empty($author_phone)): ?>
-<!--                                    <li class="uab-icon-phone">-->
-<!--                                        <a href="javascript:void(0)">-->
-<!--                                            <i class="fa fa-phone"></i>-->
-<!--                                        </a>-->
-<!--                                    </li>-->
-<!--                                --><?php //endif; ?>
-                                <?php
-                            }
+        if ($uab_general_settings['uab_disable_uab']) {
+            //echo 'Disable author box';
+        } else {
+            if ($uab_general_settings['uab_empty_bio'] && $author_description == '') {
+                //echo 'The Author Box Will not show if the author bio is empty';
+            } else {
+                ?>
+                <div id="uab-frontend-wrapper" class="uab-frontend-wrapper uab-template-1">
+                    <div class="uab-tab-content">
+                        <div class="uab-defaut-tab uab-clearfix">
+                            <?php
+                            include(UAB_PATH . '/inc/frontend/frontend-default/uab-default.php');
                             ?>
-                        </ul>
+                        </div>
                     </div>
-                <?php } ?>
-            </div>
-</div>
+                </div>
+                <?php
+            }
+        }
+        ?>
+    </div>
 <?php } ?>
 <?php if ($displayType == 'template-2') { ?>
     <?php if ($displayAuthorName) { ?>
@@ -397,13 +245,13 @@ $follow_var = ($uab_influence_target_link == intval(1)) ? ('rel="' . esc_attr("n
                             </a>
                         </li>
                     <?php endif; ?>
-<!--                    --><?php //if (!empty($author_phone)): ?>
-<!--                        <li class="uab-icon-phone">-->
-<!--                            <a href="javascript:void(0)">-->
-<!--                                <i class="fa fa-phone"></i>-->
-<!--                            </a>-->
-<!--                        </li>-->
-<!--                    --><?php //endif; ?>
+                    <!--                    --><?php //if (!empty($author_phone)): ?>
+                    <!--                        <li class="uab-icon-phone">-->
+                    <!--                            <a href="javascript:void(0)">-->
+                    <!--                                <i class="fa fa-phone"></i>-->
+                    <!--                            </a>-->
+                    <!--                        </li>-->
+                    <!--                    --><?php //endif; ?>
                     <?php
                 }
                 ?>
@@ -572,13 +420,13 @@ $follow_var = ($uab_influence_target_link == intval(1)) ? ('rel="' . esc_attr("n
                             </a>
                         </li>
                     <?php endif; ?>
-<!--                    --><?php //if (!empty($author_phone)): ?>
-<!--                        <li class="uab-icon-phone">-->
-<!--                            <a href="javascript:void(0)">-->
-<!--                                <i class="fa fa-phone"></i>-->
-<!--                            </a>-->
-<!--                        </li>-->
-<!--                    --><?php //endif; ?>
+                    <!--                    --><?php //if (!empty($author_phone)): ?>
+                    <!--                        <li class="uab-icon-phone">-->
+                    <!--                            <a href="javascript:void(0)">-->
+                    <!--                                <i class="fa fa-phone"></i>-->
+                    <!--                            </a>-->
+                    <!--                        </li>-->
+                    <!--                    --><?php //endif; ?>
                     <?php
                 }
                 ?>
@@ -587,3 +435,4 @@ $follow_var = ($uab_influence_target_link == intval(1)) ? ('rel="' . esc_attr("n
     <?php } ?>
     </div>
 <?php } ?>
+</div>
