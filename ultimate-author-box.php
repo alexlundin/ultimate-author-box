@@ -229,7 +229,6 @@ if (!class_exists('Ultimate_Author_Box')) {
                     $uab_general_settings['uab_link_target_option'] = sanitize_text_field($_POST['uab_link_target_option']);
 
                     $uab_general_settings['uab_disable_email'] = (isset($_POST['uab_disable_email']) ? 1 : 0);
-                    $uab_general_settings['uab_coauthor_header_text'] = (isset($_POST['uab_coauthor_header_text']) && !empty($_POST['uab_coauthor_header_text'])) ? sanitize_text_field($_POST['uab_coauthor_header_text']) : esc_html('Co Authors', 'ultimate_author_box');
                     $uab_general_settings['uab_disable_customizer'] = (isset($_POST['uab_disable_customizer']) ? 1 : 0);
 
                     $uab_general_settings['uab_template'] = sanitize_text_field($_POST['uab_template']);
@@ -942,7 +941,7 @@ if (!class_exists('Ultimate_Author_Box')) {
                     <option value="uab_bottom" <?php if (!empty($uab_stored_meta_position[0])) selected($uab_stored_meta_position[0], 'uab_bottom'); ?>><?php _e('Bottom', 'ultimate-author-box'); ?></option>
                 </select>
             </p>
-           
+
             <?php
         }
 

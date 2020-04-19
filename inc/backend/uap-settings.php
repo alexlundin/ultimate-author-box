@@ -181,16 +181,6 @@ $uab_general_settings = empty($uab_general_settings) ? array() : $uab_general_se
             </div>
         </div>
 
-        <div class="uab-fontend-popup uab-content-wrapper">
-            <div class="uab-label-info-wrap">
-                <label><?php _e('Co Author Header Text', 'ultimate-author-box'); ?></label>
-            </div>
-            <div>
-                <input type="text" name="uab_coauthor_header_text"
-                       value="<?php echo (isset($uab_general_settings['uab_coauthor_header_text'])) ? esc_attr($uab_general_settings['uab_coauthor_header_text']) : ''; ?>"
-                       placeholder="<?php esc_attr_e('Default: Co Authors', 'ultimate-author-box') ?>">
-            </div>
-        </div>
 
         <!--@since version 1.0.8 -->
         <div class="uab-fontend-popup uab-content-wrapper">

@@ -13,7 +13,6 @@ $anchor_timeout = (isset($anchor_box) && isset($uab_shortcode_atts['anchor_timeo
 
 $uab_shortcode_atts['template'] = isset($uab_general_settings['uab_template']) ? $uab_general_settings['uab_template'] : 'uab-template-1';
 $uab_custom_template = $uab_general_settings['uab_custom_template'];
-//$uab_coauthor_header_text = $uab_general_settings['uab_coauthor_header_text'];
 $uab_template_type = isset($atts['template']) ? $atts['template'] : $uab_general_settings['uab_template'];
 $author_id = $uab_shortcode_atts['user_id'];
 $author_description = get_the_author_meta('description', $author_id);
