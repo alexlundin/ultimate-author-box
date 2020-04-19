@@ -207,16 +207,9 @@ if (!class_exists('Ultimate_Author_Box')) {
             if (check_admin_referer('uab_admin_option_update')) {
                 if (isset($_POST['uab_settings_save_button'])) {
                     $uab_general_settings = array();
-                    $uab_general_settings['uab_custom_post_type_list'] = array();
-                    $uab_general_settings['uab_user_roles'] = array();
 
-                    if (isset($_POST['uab_custom_post_type_list'])) {
-                        foreach ($_POST['uab_custom_post_type_list'] as $key => $value) {
-                            $uab_general_settings['uab_custom_post_type_list'][$key] = $value;
-                        }
-                    } else {
-                        $uab_general_settings['uab_custom_post_type_list'] = array();
-                    }
+                    $uab_general_settings['uab_user_roles'] = array();
+                    
 
                     if (isset($_POST['uab_user_roles'])) {
                         foreach ($_POST['uab_user_roles'] as $key => $value) {
@@ -229,7 +222,6 @@ if (!class_exists('Ultimate_Author_Box')) {
                     $uab_general_settings['uab_disable_uab'] = (isset($_POST['uab_disable_uab']) ? 1 : 0);
                     $uab_general_settings['uab_posts'] = (isset($_POST['uab_posts']) ? 1 : 0);
                     $uab_general_settings['uab_pages'] = (isset($_POST['uab_pages']) ? 1 : 0);
-                    $uab_general_settings['uab_custom_post'] = (isset($_POST['uab_custom_post']) ? 1 : 0);
                     $uab_general_settings['uab_box_position'] = sanitize_text_field($_POST['uab_box_position']);
                     $uab_general_settings['uab_empty_bio'] = (isset($_POST['uab_empty_bio']) ? 1 : 0);
                     $uab_general_settings['uab_default_bio'] = (isset($_POST['uab_default_bio']) ? 1 : 0);
@@ -264,11 +256,9 @@ if (!class_exists('Ultimate_Author_Box')) {
             foreach ($user_role_list as $key => $value) {
                 $uab_general_settings['uab_user_roles'][] = $key;
             }
-            $uab_general_settings['uab_custom_post_type_list'] = array();
             $uab_general_settings['uab_disable_uab'] = 0;
             $uab_general_settings['uab_posts'] = 1;
             $uab_general_settings['uab_pages'] = 1;
-            $uab_general_settings['uab_custom_post'] = 1;
             $uab_general_settings['uab_box_position'] = 'uab_bottom';
             $uab_general_settings['uab_empty_bio'] = 0;
             $uab_general_settings['uab_default_bio'] = 1;
@@ -396,30 +386,6 @@ if (!class_exists('Ultimate_Author_Box')) {
                             break;
                         default:
                             return $content;
-                    }
-                }
-            }
-            if ($uab_general_settings['uab_custom_post'] && isset($uab_general_settings['uab_custom_post_type_list']) && $uab_stored_meta_value == 'yes') {
-                foreach ($uab_general_settings['uab_custom_post_type_list'] as $innerKey => $type) {
-                    if (is_singular($type)) {
-                        if ($uab_stored_meta_value_position != 'default') {
-                            $check_position = $uab_stored_meta_value_position;
-                        } else {
-                            $check_position = $uab_general_settings['uab_box_position'];
-                        }
-                        switch ($check_position) {
-                            case 'uab_top':
-                                remove_filter('the_content', 'wpautop');
-                                $content = $postIDfield . do_shortcode('[ultimate_author_box]') . wpautop($content);
-                                break;
-                            case 'uab_bottom':
-                                remove_filter('the_content', 'wpautop');
-                                $content = wpautop($content) . $postIDfield;
-                                $content .= do_shortcode('[ultimate_author_box]');
-                                break;
-                            default:
-                                return $content;
-                        }
                     }
                 }
             }

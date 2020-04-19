@@ -94,54 +94,10 @@ $uab_general_settings = empty($uab_general_settings) ? array() : $uab_general_se
                     </div>
                 </div>
             </div>
-            <?php
 
-            $args = array(
-                'public' => true,
-                '_builtin' => false,
-            );
 
-            $output = 'names'; // names or objects, note names is the default
-            $operator = 'and'; // 'and' or 'or'
 
-            $post_types = get_post_types($args, $output, $operator);
-            ?>
-            <div class="uap-disable-authorbox uab-content-wrapper" <?php if (empty($post_types)) echo 'style="display:none;"'; ?>>
-                <div class="uab-label-info-wrap">
-                    <label><?php _e('Show in Custom Post Types', 'ultimate-author-box'); ?></label>
-                    <span class="uab-info"><?php _e('Check to show Ultimate Author Box in Custom Post Type', 'ultimate-author-box'); ?></span>
-                </div>
-                <div class="uab-slide-checkbox-wrapper">
-                    <div class="uab-slide-checkbox-wrapper-inner">
-                        <div class="uab-slide-checkbox">
-                            <input type="checkbox" id="uab-custom-posts"
-                                   name="uab_custom_post" <?php if (!empty($uab_general_settings['uab_custom_post'])) echo 'checked'; ?>>
-                            <label for="uab-custom-posts"></label>
-                        </div>
 
-                    </div>
-                </div>
-            </div><!-- End of uap-disable-authorbox -->
-            <div class="uab-custom-post-type-list-wrapper">
-                <?php
-                foreach ($post_types as $key => $post_type) {
-                    ?>
-                    <div class="uab-single-checkbox-wrap">
-                        <div class="uab-single-checkbox">
-                            <input type="checkbox" id="uab-post-type-<?php esc_attr_e($key); ?>"
-                                   name="uab_custom_post_type_list[]" value="<?php esc_attr_e($post_type); ?>" <?php
-                            foreach ($uab_general_settings['uab_custom_post_type_list'] as $innerKey => $type) {
-                                if ($key == $type) echo 'checked';
-                            }
-                            ?>>
-                            <label for="uab-post-type-<?php esc_attr_e($key); ?>"></label>
-                        </div>
-                        <span class="uab-info"><?php esc_html_e($post_type); ?></span>
-                    </div>
-                    <?php
-                }
-                ?>
-            </div><!-- End of uab-custom-post-type-list-wrapper -->
         </div><!-- End of uab-postion-wrapper -->
         <div class="select-tab-wrapper uab-content-wrapper">
             <div class="uab-label-info-wrap">
