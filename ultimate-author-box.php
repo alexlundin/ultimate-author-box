@@ -229,7 +229,7 @@ if (!class_exists('Ultimate_Author_Box')) {
                     $uab_general_settings['uab_link_target_option'] = sanitize_text_field($_POST['uab_link_target_option']);
 
                     $uab_general_settings['uab_disable_email'] = (isset($_POST['uab_disable_email']) ? 1 : 0);
-                    $uab_general_settings['uab_disable_customizer'] = (isset($_POST['uab_disable_customizer']) ? 1 : 0);
+
 
                     $uab_general_settings['uab_template'] = sanitize_text_field($_POST['uab_template']);
 

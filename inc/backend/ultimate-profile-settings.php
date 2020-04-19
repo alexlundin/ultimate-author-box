@@ -76,12 +76,7 @@ if (empty($unserialized_uab_profile_data)) {
             <div class="uab-right-elements">
                 <input type="button" value="<?php _e('+', 'ultimate-author-box'); ?>" id="uab-add-field"
                        title="<?php _e('New Tab', 'ultimate-author-box'); ?>">
-                <?php
-                $uab_customizer_restriction = 0;
-                if (isset($uab_general_settings['uab_disable_customizer']) && !empty($uab_general_settings['uab_disable_customizer']) && $uab_general_settings['uab_disable_customizer'] == 1):
-                    $uab_customizer_restriction = 1;
-                    ?>
-                <?php endif; ?>
+
                 <div id="uab-template-settings"
                      title="<?php _e('Template Settings', 'ultimate-author-box'); ?>" <?php if ($uab_customizer_restriction == 1) esc_attr_e('style=display:none;'); ?>>
                     <i class="fas fa-code"></i></div>
