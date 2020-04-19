@@ -209,7 +209,7 @@ if (!class_exists('Ultimate_Author_Box')) {
                     $uab_general_settings = array();
 
                     $uab_general_settings['uab_user_roles'] = array();
-                    
+
 
                     if (isset($_POST['uab_user_roles'])) {
                         foreach ($_POST['uab_user_roles'] as $key => $value) {
@@ -229,7 +229,6 @@ if (!class_exists('Ultimate_Author_Box')) {
                     $uab_general_settings['uab_link_target_option'] = sanitize_text_field($_POST['uab_link_target_option']);
 
                     $uab_general_settings['uab_disable_email'] = (isset($_POST['uab_disable_email']) ? 1 : 0);
-                    $uab_general_settings['uab_disable_coauthor'] = (isset($_POST['uab_disable_coauthor']) ? 1 : 0);
                     $uab_general_settings['uab_coauthor_header_text'] = (isset($_POST['uab_coauthor_header_text']) && !empty($_POST['uab_coauthor_header_text'])) ? sanitize_text_field($_POST['uab_coauthor_header_text']) : esc_html('Co Authors', 'ultimate_author_box');
                     $uab_general_settings['uab_disable_customizer'] = (isset($_POST['uab_disable_customizer']) ? 1 : 0);
 
@@ -263,7 +262,6 @@ if (!class_exists('Ultimate_Author_Box')) {
             $uab_general_settings['uab_empty_bio'] = 0;
             $uab_general_settings['uab_default_bio'] = 1;
             $uab_general_settings['uab_default_message'] = __('Sorry! The Author has not filled his profile.', 'ultimate-author-box');
-            /* $uab_general_settings['uab_small_device'] = 0; */
             $uab_general_settings['uab_link_target_option'] = '_blank';
 
             $uab_general_settings['uab_template'] = 'uab-template-1';
@@ -944,22 +942,7 @@ if (!class_exists('Ultimate_Author_Box')) {
                     <option value="uab_bottom" <?php if (!empty($uab_stored_meta_position[0])) selected($uab_stored_meta_position[0], 'uab_bottom'); ?>><?php _e('Bottom', 'ultimate-author-box'); ?></option>
                 </select>
             </p>
-            <!--			--><?php //if (!$uab_general_settings['uab_disable_coauthor']):
-            ?>
-            <!--				<p>-->
-            <!--					<label>--><?php //_e('Co Author Layout Type','ultimate-author-box');
-            ?><!--</label>-->
-            <!--					<select name="uab_co_author_display_type">-->
-            <!--						<option value="list" --><?php //selected(isset($uab_co_author_display_type)?esc_attr($uab_co_author_display_type):'','list')
-            ?><!--/>--><?php //esc_attr_e('List','ultimate-author-box')
-            ?><!--</option>-->
-            <!--						<option value="grid" --><?php //selected(isset($uab_co_author_display_type)?esc_attr($uab_co_author_display_type):'','grid')
-            ?><!--/>--><?php //esc_attr_e('Grid','ultimate-author-box')
-            ?><!--</option>-->
-            <!--					</select>-->
-            <!--				</p>-->
-            <!--			--><?php //endif
-            ?>
+           
             <?php
         }
 

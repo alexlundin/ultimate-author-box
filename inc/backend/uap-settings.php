@@ -94,10 +94,6 @@ $uab_general_settings = empty($uab_general_settings) ? array() : $uab_general_se
                     </div>
                 </div>
             </div>
-
-
-
-
         </div><!-- End of uab-postion-wrapper -->
         <div class="select-tab-wrapper uab-content-wrapper">
             <div class="uab-label-info-wrap">
@@ -154,21 +150,7 @@ $uab_general_settings = empty($uab_general_settings) ? array() : $uab_general_se
                         name="uab_default_message"><?php echo (isset($uab_general_settings['uab_default_message'])) ? esc_attr($uab_general_settings['uab_default_message']) : ''; ?></textarea>
             </div>
         </div>
-        <!-- 			    	<div class="uap-show-authorbox-small-device uab-content-wrapper">
-			    		<div class="uab-label-info-wrap">
-			    			<label><?php _e('Show Author Box in Small Screen Device', 'ultimate-author-box'); ?></label>
-			    			<span class="uab-info"><?php _e('Check to Show Author Box in Small Screen Device', 'ultimate-author-box'); ?></span>
-			    		</div>
-			    		<div class="uab-slide-checkbox-wrapper">
-			    			<div class="uab-slide-checkbox-wrapper-inner">
-			    				<div class="uab-slide-checkbox">  
-			    					<input type="checkbox" id="uab-small-device" name="uab_small_device" <?php if (!empty($uab_general_settings['uab_small_device'])) echo 'checked'; ?>>
-			    					<label for="uab-small-device"></label>
-			    				</div>
 
-			    			</div>
-			    		</div>
-			    	</div> -->
         <div class="select-tab-wrapper uab-content-wrapper">
             <div class="uab-label-info-wrap">
                 <label for="uab-link-target-option"><?php _e('Frontend link target options ', 'ultimate-author-box'); ?></label>
@@ -199,21 +181,6 @@ $uab_general_settings = empty($uab_general_settings) ? array() : $uab_general_se
             </div>
         </div>
 
-        <div class="uab-fontend-popup uab-content-wrapper">
-            <div class="uab-label-info-wrap">
-                <label><?php _e('Disable Co Authors', 'ultimate-author-box'); ?></label>
-                <span class="uab-info"><?php _e('Choose whether to show co authors or not in the Author Box', 'ultimate-author-box'); ?></span>
-            </div>
-            <div class="uab-slide-checkbox-wrapper">
-                <div class="uab-slide-checkbox-wrapper-inner">
-                    <div class="uab-slide-checkbox">
-                        <input type="checkbox" id="uab-disable-co-author"
-                               name="uab_disable_coauthor" <?php if (!empty($uab_general_settings['uab_disable_coauthor'])) echo 'checked'; ?>>
-                        <label for="uab-disable-co-author"></label>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="uab-fontend-popup uab-content-wrapper">
             <div class="uab-label-info-wrap">
                 <label><?php _e('Co Author Header Text', 'ultimate-author-box'); ?></label>
