@@ -168,11 +168,18 @@ if (!class_exists('Ultimate_Author_Box')) {
 
         function uab_register_frontend_assets()
         {
+            wp_enqueue_style('uab-frontend-main', UAB_CSS_DIR . '/front/main.css', array(), UAB_VERSION);
+            $uab_general_settings = get_option( 'uap_general_settings' );
+            global $post;
+            if( has_shortcode( $post->post_content, 'ultimate_author_box_widget') || $uab_general_settings["uab_template"] === 'uab-template-1') {
+                wp_enqueue_style('uab-frontend-template', UAB_CSS_DIR . '/uab-template-1.css', array(), UAB_VERSION);
+                wp_enqueue_style('uab-frontend-responsive-style', UAB_CSS_DIR . '/front/responsive.css', array(), UAB_VERSION);
+            }
 
-
-            wp_enqueue_style('uab-frontend-style', UAB_CSS_DIR . '/frontend.css', array(), UAB_VERSION);
-            wp_enqueue_style('uab-frontend-responsive-style', UAB_CSS_DIR . '/uab-responsive.css', array(), UAB_VERSION);
-            wp_enqueue_style('uab-frontend-template', UAB_CSS_DIR . '/uab-template-1.css', array(), UAB_VERSION);
+            $sidebar_id = is_active_widget( 0, 0, 'uab_author_box_widget' );
+            if ($sidebar_id) {
+                wp_enqueue_style('uab-frontend-style', UAB_CSS_DIR . '/frontend.css', array(), UAB_VERSION);
+            }
 
         }
 
@@ -452,7 +459,7 @@ if (!class_exists('Ultimate_Author_Box')) {
                     $uab_current_user_role[] = $role;
             }
 
-            $uab_general_settings = get_option('uap_general_settings');
+
 
             /* $this->print_array($uab_current_user_role); */
             /* $this->print_array($uab_general_settings['uab_user_roles']); */
