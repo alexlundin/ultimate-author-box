@@ -285,7 +285,7 @@ $uab_general_settings = empty($uab_general_settings) ? array() : $uab_general_se
                 </div>
             </div>
         </div>
-    </div><!--End of uab-general-settings-content-wrapper-->
+    </div>
 </div><!--End of tab 1-->
 <div id="tab-4" class="uab-tab-content">
     <div class="uab-template-settings-wrapper">
