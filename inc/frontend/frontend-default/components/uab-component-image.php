@@ -1,21 +1,8 @@
 <?php defined( 'ABSPATH' ) or die( 'No script kiddies please!' );?>
 
 <div class="uab-author-profile-pic">
-	<?php 
-	if(isset($uab_profile_data[0]['uab_image_shape'])){
-		switch($uab_profile_data[0]['uab_image_shape']){
-			case 'uab_is_circle':
-			$uap_profile_image_shape = 'uap-profile-image-circle';
-			break;
-			default:
-			$uap_profile_image_shape = 'uap-profile-image-square';
-		}
-	}else{
-		$uap_profile_image_shape = 'uap-profile-image-square';
-	}
 
-		?>
-	<div class="uap-profile-image <?php esc_attr_e($uap_profile_image_shape); ?>">
+	<div class="uap-profile-image">
 		<?php
 		$uab_select_image_option = isset($uab_profile_data[0]['uab_image_select'])?$uab_profile_data[0]['uab_image_select']:'uab_gravatar';
 		switch($uab_select_image_option){

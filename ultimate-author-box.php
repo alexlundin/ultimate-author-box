@@ -53,7 +53,6 @@ if (!class_exists('Ultimate_Author_Box')) {
             add_action('admin_post_uab_settings_save_action', array($this, 'uab_save_settings'));
 
 
-
             add_shortcode('ultimate_author_box', array($this, 'ultimate_author_box'));
             add_shortcode('ultimate_author_box_widget', array($this, 'ultimate_author_box_widget'));
 
@@ -135,23 +134,11 @@ if (!class_exists('Ultimate_Author_Box')) {
             }
             wp_enqueue_style('jquery-ui-css', UAB_CSS_DIR . '/jquery-ui.css', array(), '1.12.1');
 
-            wp_enqueue_style('uab-fontawesome-css', UAB_CSS_DIR . '/fontawesome.css', UAB_VERSION);
-            wp_enqueue_style('uab-fa-solid-css', UAB_CSS_DIR . '/fa-solid.css', UAB_VERSION);
-            wp_enqueue_style('uab-fa-regular-css', UAB_CSS_DIR . '/fa-regular.css', UAB_VERSION);
-            wp_enqueue_style('uab-fa-brands-css', UAB_CSS_DIR . '/fa-brands.css', UAB_VERSION);
-            wp_enqueue_style('uab-font-awesome-style', UAB_CSS_DIR . '/font-awesome.min.css', array(), UAB_VERSION);
-
-            wp_enqueue_style('uab-codemirror-style', UAB_CSS_DIR . '/codemirror.css', array(), UAB_VERSION);
-
             wp_enqueue_style('ultimate-author-box-backend-style', UAB_CSS_DIR . '/backend.css', array(), UAB_VERSION);
 
-            wp_enqueue_script('uab-codemirror-script', UAB_JS_DIR . '/codemirror.js', array(), '5.22.0');
-            wp_enqueue_script('uab-codemirror-css-js', UAB_JS_DIR . '/css.js', array('jquery', 'uab-codemirror-script'), UAB_VERSION);
             wp_enqueue_script('jquery-ui', UAB_JS_DIR . '/jquery-ui.js', array('jquery'), '1.12.1');
 
-            wp_enqueue_style('wp-color-picker');
-            wp_enqueue_script('uab-color-picker-js', UAB_JS_DIR . '/wp-color-picker-alpha.js', array('jquery', 'wp-color-picker'), UAB_VERSION);
-            wp_enqueue_script('uab-backend-script', UAB_JS_DIR . '/backend.js', array('jquery', 'jquery-ui', 'jquery-ui-dialog', 'uab-codemirror-script', 'wp-color-picker'), UAB_VERSION);
+            wp_enqueue_script('uab-backend-script', UAB_JS_DIR . '/backend.js', array('jquery', 'jquery-ui', 'jquery-ui-dialog'), UAB_VERSION);
             wp_enqueue_media();
             wp_localize_script('uab-backend-script', 'uab_variable', array(
                 'plugin_javascript_path' => UAB_JS_DIR,
@@ -168,19 +155,8 @@ if (!class_exists('Ultimate_Author_Box')) {
 
         function uab_register_frontend_assets()
         {
-            wp_enqueue_style('uab-frontend-main', UAB_CSS_DIR . '/front/main.css', array(), UAB_VERSION);
-            $uab_general_settings = get_option( 'uap_general_settings' );
-            global $post;
-            if( has_shortcode( $post->post_content, 'ultimate_author_box_widget') || $uab_general_settings["uab_template"] === 'uab-template-1') {
-                wp_enqueue_style('uab-frontend-template', UAB_CSS_DIR . '/uab-template-1.css', array(), UAB_VERSION);
-                wp_enqueue_style('uab-frontend-responsive-style', UAB_CSS_DIR . '/front/responsive.css', array(), UAB_VERSION);
-            }
-
-            $sidebar_id = is_active_widget( 0, 0, 'uab_author_box_widget' );
-            if ($sidebar_id) {
-                wp_enqueue_style('uab-frontend-style', UAB_CSS_DIR . '/frontend.css', array(), UAB_VERSION);
-            }
-
+            wp_enqueue_style('uab-frontend-style', UAB_CSS_DIR . '/frontend.css', array(), UAB_VERSION);
+            wp_enqueue_style('uab-frontend-responsive-style', UAB_CSS_DIR . '/uab-responsive.css', array(), UAB_VERSION);
         }
 
 
@@ -267,7 +243,6 @@ if (!class_exists('Ultimate_Author_Box')) {
             $uab_general_settings['uab_custom_template'] = 'uab-template-1';
             return $uab_general_settings;
         }
-
 
 
         /* Register Shortcode [ultimate_author_box user_id="1" template='uab-template-1'] */

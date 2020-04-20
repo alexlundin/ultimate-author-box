@@ -50,13 +50,7 @@
 				<div class="uab-image-selection-option uab-profile-field">
 					<label><?php _e( 'Choose Image Type', 'ultimate-author-box' );?></label>
 					<select class="uab_image_select " name="uab_profile_data[0][uab_image_select]" value="<?php echo isset($unserialized_uab_profile_data[0]['uab_image_select'])?$unserialized_uab_profile_data[0]['uab_image_select']: 'uab_gravatar';?>">
-						<optgroup label="<?php _e( 'Default', 'ultimate-author-box' ); ?>"></optgroup>
 						<option value="uab_gravatar" <?php if ( isset($unserialized_uab_profile_data[0]['uab_image_select']) && $unserialized_uab_profile_data[0]['uab_image_select'] =='uab_gravatar' ) echo 'selected'; ?>><?php _e( 'Gravatar', 'ultimate-author-box' ); ?></option>
-						<optgroup label="<?php _e( 'Social Profile Image', 'ultimate-author-box' ); ?>"></optgroup>
-						<option value="uab_facebook" <?php if ( isset($unserialized_uab_profile_data[0]['uab_image_select']) && $unserialized_uab_profile_data[0]['uab_image_select'] =='uab_facebook' ) echo 'selected'; ?>><?php _e( 'Facebook', 'ultimate-author-box' ); ?></option>
-						<option value="uab_instagram" <?php if ( isset($unserialized_uab_profile_data[0]['uab_image_select']) && $unserialized_uab_profile_data[0]['uab_image_select'] =='uab_instagram' ) echo 'selected'; ?>><?php _e( 'Instagram', 'ultimate-author-box' ); ?></option>
-						<option value="uab_twitter" <?php if ( isset($unserialized_uab_profile_data[0]['uab_image_select']) && $unserialized_uab_profile_data[0]['uab_image_select'] =='uab_twitter' ) echo 'selected'; ?>><?php _e( 'Twitter', 'ultimate-author-box' ); ?></option>
-						<optgroup label="<?php _e( 'Custom Image', 'ultimate-author-box' ); ?>"></optgroup>
 						<option value="uab_upload_image" <?php if ( isset($unserialized_uab_profile_data[0]['uab_image_select']) && $unserialized_uab_profile_data[0]['uab_image_select'] =='uab_upload_image' ) echo 'selected'; ?>><?php _e( 'Upload Image', 'ultimate-author-box' ); ?></option>
 					</select>
 				</div><!-- End of Image Option Selection-->
@@ -107,14 +101,6 @@
 					</div>
 				</div><!--End of Social Image Option Wrapper-->
 			</div><!--End of Alternate Image Selection Option-->
-
-			<div class="uap-image-shape-wrapper uab-profile-field">
-				<label><?php _e( 'Choose Image Shape', 'ultimate-author-box' ); ?></label>
-				<select class="uab_image_shape " name="uab_profile_data[0][uab_image_shape]" value="<?php echo isset($unserialized_uab_profile_data[0]['uab_image_shape'])?$unserialized_uab_profile_data[0]['uab_image_shape']:'uab_is_square';?>">
-					<option value="uab_is_square" <?php if ( isset($unserialized_uab_profile_data[0]['uab_image_shape']) && $unserialized_uab_profile_data[0]['uab_image_shape'] =='uab_is_square' ) echo 'selected'; ?>><?php _e( 'Square', 'ultimate-author-box' ); ?></option>
-					<option value="uab_is_circle" <?php if ( !empty($unserialized_uab_profile_data[0]['uab_image_shape']) && $unserialized_uab_profile_data[0]['uab_image_shape'] =='uab_is_circle' ) echo 'selected'; ?>><?php _e( 'Circular', 'ultimate-author-box' ); ?></option>
-				</select>
-			</div><!--End of Image Shape Option Wrapper-->
 		</div><!--End of Image Wrapper-->
 	</div>
 	<div class="uab-label-info-wrapper">
