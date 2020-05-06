@@ -1,3 +1,16 @@
+@font-face {
+    font-family: 'Font Awesome 5 Brands';
+    font-display: swap;
+    font-style: normal;
+    font-weight: normal;
+    src: url("fonts/fa-brands-400.woff2") format("woff2"),
+    url("fonts/fa-brands-400.woff") format("woff")}
+
+.fab {
+    font-family: 'Font Awesome 5 Brands';
+    font-style: normal;
+}
+
 .uab-frontend-wrapper {
     text-align: left;
 }

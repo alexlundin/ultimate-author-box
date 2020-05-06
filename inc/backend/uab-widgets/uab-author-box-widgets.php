@@ -38,6 +38,7 @@ class UAB_Author_Box_Widget extends WP_Widget {
 		$displayAuthorDescription = ! empty( $instance['displayAuthorDescription'] ) ? $instance['displayAuthorDescription'] : '';
 		$displaySocialIcons = ! empty( $instance['displaySocialIcons'] ) ? $instance['displaySocialIcons'] : '';
 		$displayContacts = ! empty( $instance['displayContacts'] ) ? $instance['displayContacts'] : '';
+		$displayType = ! empty( $instance['displayType'] ) ? $instance['displayType'] : esc_html__( 'template-2', 'ultimate-author-box' );
 		?>
 		<p>
 			<label for="<?php esc_attr_e( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Widget Title:', 'ultimate-author-box' ); ?></label> 
@@ -60,6 +61,14 @@ class UAB_Author_Box_Widget extends WP_Widget {
 				}
 				?>
 			</select> 
+		</p>
+		<p>
+			<label for="<?php esc_attr_e($this->get_field_id('displayType')); ?>"><?php esc_attr_e( 'Display Type:', 'ultimate-author-box' ); ?></label>
+			<select class='widefat uab-widget-display-option' id="<?php esc_attr_e($this->get_field_id('displayType')); ?>"	name="<?php esc_attr_e($this->get_field_name('displayType')); ?>">
+				<option value='template-2'<?php _e(($displayType =='template-2')?'selected':''); ?>>
+					<?php esc_html_e( 'Template 2', 'ultimate-author-box' ); ?>
+				</option>
+			</select>
 		</p>
 		<p>
 			<input class="checkbox" type="checkbox" <?php if(!empty($detectAuthor)) esc_attr_e('checked'); ?> id="<?php esc_attr_e($this->get_field_id( 'detectAuthor' )); ?>" name="<?php esc_attr_e($this->get_field_name( 'detectAuthor' )); ?>" /> 

@@ -4,7 +4,7 @@ defined('ABSPATH') or die('No script kiddies please!');
   Plugin Name: Ultimate Author Box Lite by Alex Lundin
   Plugin URI: https://alexlundin.com/wp-update-server?action=get_metadata&slug=ultimate-author-box
   Description: Ultimate Author Box is a plugin that allows you to add additional information about the author in your Post, Page Custom Post Type as a default option or through use of shortcode and widgets.
-  Version: 2.1
+  Version: 2.1.3
   Author: Alex Lundin
   Author URI: https://alexlundin.com
   License: GPL2 or later
@@ -16,11 +16,13 @@ defined('ABSPATH') or die('No script kiddies please!');
 
 include_once('inc/backend/uab-widgets/uab-author-box-widgets.php');
 
+
+
 require 'plugin-update-checker/plugin-update-checker.php';
-$MyUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-    'https://alexlundin.com/wp-update-server?action=get_metadata&slug=ultimate-author-box', //Metadata URL.
-    __FILE__, //Full path to the main plugin file.
-    'ultimate-author-box' //Plugin slug. Usually it's the same as the name of the directory.
+$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+	'https://github.com/alexlundin/ultimate-author-box/',
+	__FILE__,
+	'ultimate-author-box'
 );
 
 /* Create class Ultimate_Author_Box */
@@ -107,7 +109,7 @@ if (!class_exists('Ultimate_Author_Box')) {
             defined('UAB_JS_DIR') or define('UAB_JS_DIR', plugin_dir_url(__FILE__) . 'js');
             defined('UAB_IMG_DIR') or define('UAB_IMG_DIR', plugin_dir_url(__FILE__) . 'images');
             defined('UAB_PATH') or define('UAB_PATH', plugin_dir_path(__FILE__));
-            defined('UAB_VERSION') or define('UAB_VERSION', '2.1');
+            defined('UAB_VERSION') or define('UAB_VERSION', '2.1.1');
 
 
         }
@@ -397,7 +399,7 @@ if (!class_exists('Ultimate_Author_Box')) {
                     $uab_current_user_role[] = $role;
             }
 
-
+            $uab_general_settings = get_option('uap_general_settings');
 
             /* $this->print_array($uab_current_user_role); */
             /* $this->print_array($uab_general_settings['uab_user_roles']); */

@@ -46,7 +46,6 @@ $follow_var = ($uab_influence_target_link == intval(1)) ? ('rel="' . esc_attr("n
     <?php if ($displayType == 'template-3') { ?>
         <div id="<?php echo $uab_random_identifier; ?>"
              class="uab-frontend-inner-layer uab-frontend-wrapper-author-<?= intval($author_id) ?> <?= (isset($anchor_box) && !empty($anchor_box)) ? esc_attr('uab_anchor_box') : '' ?>" <?= isset($anchor_box) ? ('data-timeout="' . intval($anchor_timeout) . '"') : intval(1000) ?>>
-
             <?php
             if ($uab_general_settings['uab_disable_uab']) {
                 //echo 'Disable author box';
@@ -178,149 +177,148 @@ $follow_var = ($uab_influence_target_link == intval(1)) ? ('rel="' . esc_attr("n
         </div>
     <?php } ?>
     <?php if ($displayType == 'template-2') { ?>
-        <?php if ($displayAuthorName) { ?>
-            <div class="uab-abw-name-wrapper">
-                <a href="<?php echo get_author_posts_url($user_id); ?>"><?php esc_html_e(the_author_meta('display_name', $user_id)); ?></a>
-            </div>
-        <?php } ?>
-        <?php if ($displayAuthorDesignation) { ?>
-            <?php if (isset($uab_profile_data[0]['uab_company_designation']) && !empty($uab_profile_data[0]['uab_company_designation'])) { ?>
-                <div class="uab-abw-designation-wrapper">
-                    <?php
-                    esc_html_e($uab_profile_data[0]['uab_company_designation']);
-                    if (!empty($uab_profile_data[0]['uab_company_url'])) {
-                        _e(' at', 'ultimate-author-box');
-                        ?>
-                        <a href="<?php esc_attr_e($uab_profile_data[0]['uab_company_url']); ?>"
-                           target="<?php esc_attr_e($uab_general_settings['uab_link_target_option']); ?>" <?= $follow_var ?>><?php esc_html_e($uab_profile_data[0]['uab_company_name']); ?></a>
-                        <?php
-                    }
-                    ?>
-                </div>
-            <?php } ?>
-        <?php } ?>
-        <div class="uab-abw-image-wrapper">
-            <a href="<?php echo get_author_posts_url($user_id); ?>">
-                <?php $uab_select_image_option = isset($uab_profile_data[0]['uab_image_select']) ? $uab_profile_data[0]['uab_image_select'] : 'uab_gravatar';
-                switch ($uab_select_image_option) {
-                    case 'uab_upload_image':
-                        if (!empty($uab_profile_data[0]['uab_upload_image_url'])) {
-                            ?>
-                            <!--Custom Image-->
-                            <div class="uap-profile-image ">
-                                <img src="<?php esc_attr_e($uab_profile_data[0]['uab_upload_image_url']); ?>"
-                                     width="200" alt="<?php esc_html_e(the_author_meta('display_name', $user_id)); ?>">
-                            </div>
-                            <?php
-                        } else {
-                            ?>
-                            <div class="uap-profile-image ">
-                                <?php _e(get_avatar($user_id, 200)); ?>
-                            </div>
-                            <?php
-                        }
-                        break;
-                    default:
-                        ?>
-                        <!--Gravatar Image-->
-                        <div class="uap-profile-image ">
-                            <?php _e(get_avatar($user_id, 200)); ?>
-                        </div>
-                    <?php
-                } ?></a>
+    <?php if ($displayAuthorName) { ?>
+        <div class="uab-abw-name-wrapper">
+            <a href="<?php echo get_author_posts_url($user_id); ?>"><?php esc_html_e(the_author_meta('display_name', $user_id)); ?></a>
         </div>
-        <?php if ($displayAuthorDesignation) { ?>
-            <?php if (isset($uab_profile_data[0]['uab_company_designation']) && !empty($uab_profile_data[0]['uab_company_designation'])) { ?>
-                <div class="uab-abw-designation-wrapper">
-                    <?php
-                    esc_html_e($uab_profile_data[0]['uab_company_designation']);
-                    if (!empty($uab_profile_data[0]['uab_company_url'])) {
-                        _e(' at', 'ultimate-author-box');
-                        ?>
-                        <a href="<?php esc_attr_e($uab_profile_data[0]['uab_company_url']); ?>"
-                           target="<?php esc_attr_e($uab_general_settings['uab_link_target_option']); ?>" <?= $follow_var ?>><?php esc_html_e($uab_profile_data[0]['uab_company_name']); ?></a>
-                        <?php
-                    }
-                    ?>
-                </div>
-            <?php } ?>
-        <?php } ?>
-        <?php if ($displayAuthorDescription) { ?>
-            <div class="uab-abw-description-wrapper">
+    <?php } ?>
+    <?php if ($displayAuthorDesignation) { ?>
+        <?php if (isset($uab_profile_data[0]['uab_company_designation']) && !empty($uab_profile_data[0]['uab_company_designation'])) { ?>
+            <div class="uab-abw-designation-wrapper">
                 <?php
-                if ((get_the_author_meta('description', $user_id) == '' && $uab_general_settings['uab_default_bio'])) {
-                    esc_html_e($uab_general_settings['uab_default_message']);
-                } else {
-                    esc_html_e(the_author_meta('description', $user_id));
+                esc_html_e($uab_profile_data[0]['uab_company_designation']);
+                if (!empty($uab_profile_data[0]['uab_company_url'])) {
+                    _e(' at', 'ultimate-author-box');
+                    ?>
+                    <a href="<?php esc_attr_e($uab_profile_data[0]['uab_company_url']); ?>"
+                       target="<?php esc_attr_e($uab_general_settings['uab_link_target_option']); ?>" <?= $follow_var ?>><?php esc_html_e($uab_profile_data[0]['uab_company_name']); ?></a>
+                    <?php
                 }
                 ?>
             </div>
         <?php } ?>
-        <?php if ($displaySocialIcons) { ?>
-            <div class="uab-abw-social-wrapper">
-                <ul id="uap-social-outlets-fields">
-                    <?php
-                    if (!empty($uab_social_icons)) {
-                        foreach ($uab_social_icons as $socialname => $innerarray) {
-                            if (!empty($uab_social_icons[$socialname]['url'])) {
-                                $uab_font_type = 'fab';
-                                if ($uab_social_icons[$socialname]['icon'] == 'rss') {
-                                    $uab_font_type = 'fas';
-                                }
-                                ?>
-                                <li>
-                                    <a href="<?php esc_attr_e($uab_social_icons[$socialname]['url']); ?>"
-                                       target="<?php esc_attr_e($uab_general_settings['uab_link_target_option']); ?>"
-                                       rel="nofollow noopener">
-                                        <i class="<?php esc_attr_e($uab_font_type); ?> fa-<?php esc_attr_e($uab_social_icons[$socialname]['icon']); ?>"></i>
-                                    </a>
-                                </li>
-                                <?php
-                            }
-                        }
+    <?php } ?>
+    <div class="uab-abw-image-wrapper">
+        <a href="<?php echo get_author_posts_url($user_id); ?>">
+            <?php $uab_select_image_option = isset($uab_profile_data[0]['uab_image_select']) ? $uab_profile_data[0]['uab_image_select'] : 'uab_gravatar';
+            switch ($uab_select_image_option) {
+                case 'uab_upload_image':
+                    if (!empty($uab_profile_data[0]['uab_upload_image_url'])) {
+                        ?>
+                        <!--Custom Image-->
+                        <div class="uap-profile-image ">
+                            <img src="<?php esc_attr_e($uab_profile_data[0]['uab_upload_image_url']); ?>"
+                                 width="200" alt="<?php esc_html_e(the_author_meta('display_name', $user_id)); ?>">
+                        </div>
+                        <?php
+                    } else {
+                        ?>
+                        <div class="uap-profile-image ">
+                            <?php _e(get_avatar($user_id, 200)); ?>
+                        </div>
+                        <?php
                     }
-
-                    if ($displayContacts) {
-                        $author_phone = isset($uab_profile_data[0]['uab_company_phone']) ? $uab_profile_data[0]['uab_company_phone'] : '';
-                        $author_url = get_the_author_meta('url', $user_id);
-                        $uab_email_disable = isset($uab_profile_data[0]['uab-email-disable']) ? 1 : 0;
-                        if (!empty($author_url)) {
+                    break;
+                default:
+                    ?>
+                    <!--Gravatar Image-->
+                    <div class="uap-profile-image ">
+                        <?php _e(get_avatar($user_id, 200)); ?>
+                    </div>
+                <?php
+            } ?></a>
+    </div>
+    <?php if ($displayAuthorDesignation) { ?>
+        <?php if (isset($uab_profile_data[0]['uab_company_designation']) && !empty($uab_profile_data[0]['uab_company_designation'])) { ?>
+            <div class="uab-abw-designation-wrapper">
+                <?php
+                esc_html_e($uab_profile_data[0]['uab_company_designation']);
+                if (!empty($uab_profile_data[0]['uab_company_url'])) {
+                    _e(' at', 'ultimate-author-box');
+                    ?>
+                    <a href="<?php esc_attr_e($uab_profile_data[0]['uab_company_url']); ?>"
+                       target="<?php esc_attr_e($uab_general_settings['uab_link_target_option']); ?>" <?= $follow_var ?>><?php esc_html_e($uab_profile_data[0]['uab_company_name']); ?></a>
+                    <?php
+                }
+                ?>
+            </div>
+        <?php } ?>
+    <?php } ?>
+    <?php if ($displayAuthorDescription) { ?>
+        <div class="uab-abw-description-wrapper">
+            <?php
+            if ((get_the_author_meta('description', $user_id) == '' && $uab_general_settings['uab_default_bio'])) {
+                esc_html_e($uab_general_settings['uab_default_message']);
+            } else {
+                esc_html_e(the_author_meta('description', $user_id));
+            }
+            ?>
+        </div>
+    <?php } ?>
+    <?php if ($displaySocialIcons) { ?>
+        <div class="uab-abw-social-wrapper">
+            <ul id="uap-social-outlets-fields">
+                <?php
+                if (!empty($uab_social_icons)) {
+                    foreach ($uab_social_icons as $socialname => $innerarray) {
+                        if (!empty($uab_social_icons[$socialname]['url'])) {
+                            $uab_font_type = 'fab';
+                            if ($uab_social_icons[$socialname]['icon'] == 'rss') {
+                                $uab_font_type = 'fas';
+                            }
                             ?>
-                            <li class="uab-icon-web">
-                                <a href="<?php esc_attr_e(get_the_author_meta('url', $user_id)); ?>"
-                                   target="<?php esc_attr_e($uab_general_settings['uab_link_target_option']); ?>">
-                                    <svg aria-hidden="true" focusable="false" data-prefix="fas"
-                                         data-icon="globe-americas"
-                                         role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"
-                                         class="svg-inline--fa fa-globe-americas fa-w-16 fa-2x">
-                                        <path fill="currentColor"
-                                              d="M248 8C111.03 8 0 119.03 0 256s111.03 248 248 248 248-111.03 248-248S384.97 8 248 8zm82.29 357.6c-3.9 3.88-7.99 7.95-11.31 11.28-2.99 3-5.1 6.7-6.17 10.71-1.51 5.66-2.73 11.38-4.77 16.87l-17.39 46.85c-13.76 3-28 4.69-42.65 4.69v-27.38c1.69-12.62-7.64-36.26-22.63-51.25-6-6-9.37-14.14-9.37-22.63v-32.01c0-11.64-6.27-22.34-16.46-27.97-14.37-7.95-34.81-19.06-48.81-26.11-11.48-5.78-22.1-13.14-31.65-21.75l-.8-.72a114.792 114.792 0 0 1-18.06-20.74c-9.38-13.77-24.66-36.42-34.59-51.14 20.47-45.5 57.36-82.04 103.2-101.89l24.01 12.01C203.48 89.74 216 82.01 216 70.11v-11.3c7.99-1.29 16.12-2.11 24.39-2.42l28.3 28.3c6.25 6.25 6.25 16.38 0 22.63L264 112l-10.34 10.34c-3.12 3.12-3.12 8.19 0 11.31l4.69 4.69c3.12 3.12 3.12 8.19 0 11.31l-8 8a8.008 8.008 0 0 1-5.66 2.34h-8.99c-2.08 0-4.08.81-5.58 2.27l-9.92 9.65a8.008 8.008 0 0 0-1.58 9.31l15.59 31.19c2.66 5.32-1.21 11.58-7.15 11.58h-5.64c-1.93 0-3.79-.7-5.24-1.96l-9.28-8.06a16.017 16.017 0 0 0-15.55-3.1l-31.17 10.39a11.95 11.95 0 0 0-8.17 11.34c0 4.53 2.56 8.66 6.61 10.69l11.08 5.54c9.41 4.71 19.79 7.16 30.31 7.16s22.59 27.29 32 32h66.75c8.49 0 16.62 3.37 22.63 9.37l13.69 13.69a30.503 30.503 0 0 1 8.93 21.57 46.536 46.536 0 0 1-13.72 32.98zM417 274.25c-5.79-1.45-10.84-5-14.15-9.97l-17.98-26.97a23.97 23.97 0 0 1 0-26.62l19.59-29.38c2.32-3.47 5.5-6.29 9.24-8.15l12.98-6.49C440.2 193.59 448 223.87 448 256c0 8.67-.74 17.16-1.82 25.54L417 274.25z"
-                                              class=""></path>
-                                    </svg>
+                            <li>
+                                <a href="<?php esc_attr_e($uab_social_icons[$socialname]['url']); ?>"
+                                   target="<?php esc_attr_e($uab_general_settings['uab_link_target_option']); ?>"
+                                   rel="nofollow noopener">
+                                    <i class="<?php esc_attr_e($uab_font_type); ?> fa-<?php esc_attr_e($uab_social_icons[$socialname]['icon']); ?>"></i>
                                 </a>
                             </li>
                             <?php
                         }
+                    }
+                }
+
+                if ($displayContacts) {
+                    $author_phone = isset($uab_profile_data[0]['uab_company_phone']) ? $uab_profile_data[0]['uab_company_phone'] : '';
+                    $author_url = get_the_author_meta('url', $user_id);
+                    $uab_email_disable = isset($uab_profile_data[0]['uab-email-disable']) ? 1 : 0;
+                    if (!empty($author_url)) {
                         ?>
-                        <?php if (!$uab_email_disable): ?>
-                            <li class="uab-icon-mail">
-                                <a href="mailto:<?php esc_attr_e(get_the_author_meta('email', $user_id)); ?>">
-                                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="envelope"
-                                         role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
-                                         class="svg-inline--fa fa-envelope fa-w-16">
-                                        <path fill="currentColor"
-                                              d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"
-                                              class=""></path>
-                                    </svg>
-                                </a>
-                            </li>
-                        <?php endif; ?>
+                        <li class="uab-icon-web">
+                            <a href="<?php esc_attr_e(get_the_author_meta('url', $user_id)); ?>"
+                               target="<?php esc_attr_e($uab_general_settings['uab_link_target_option']); ?>">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="globe-americas"
+                                     role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"
+                                     class="svg-inline--fa fa-globe-americas fa-w-16 fa-2x">
+                                    <path fill="currentColor"
+                                          d="M248 8C111.03 8 0 119.03 0 256s111.03 248 248 248 248-111.03 248-248S384.97 8 248 8zm82.29 357.6c-3.9 3.88-7.99 7.95-11.31 11.28-2.99 3-5.1 6.7-6.17 10.71-1.51 5.66-2.73 11.38-4.77 16.87l-17.39 46.85c-13.76 3-28 4.69-42.65 4.69v-27.38c1.69-12.62-7.64-36.26-22.63-51.25-6-6-9.37-14.14-9.37-22.63v-32.01c0-11.64-6.27-22.34-16.46-27.97-14.37-7.95-34.81-19.06-48.81-26.11-11.48-5.78-22.1-13.14-31.65-21.75l-.8-.72a114.792 114.792 0 0 1-18.06-20.74c-9.38-13.77-24.66-36.42-34.59-51.14 20.47-45.5 57.36-82.04 103.2-101.89l24.01 12.01C203.48 89.74 216 82.01 216 70.11v-11.3c7.99-1.29 16.12-2.11 24.39-2.42l28.3 28.3c6.25 6.25 6.25 16.38 0 22.63L264 112l-10.34 10.34c-3.12 3.12-3.12 8.19 0 11.31l4.69 4.69c3.12 3.12 3.12 8.19 0 11.31l-8 8a8.008 8.008 0 0 1-5.66 2.34h-8.99c-2.08 0-4.08.81-5.58 2.27l-9.92 9.65a8.008 8.008 0 0 0-1.58 9.31l15.59 31.19c2.66 5.32-1.21 11.58-7.15 11.58h-5.64c-1.93 0-3.79-.7-5.24-1.96l-9.28-8.06a16.017 16.017 0 0 0-15.55-3.1l-31.17 10.39a11.95 11.95 0 0 0-8.17 11.34c0 4.53 2.56 8.66 6.61 10.69l11.08 5.54c9.41 4.71 19.79 7.16 30.31 7.16s22.59 27.29 32 32h66.75c8.49 0 16.62 3.37 22.63 9.37l13.69 13.69a30.503 30.503 0 0 1 8.93 21.57 46.536 46.536 0 0 1-13.72 32.98zM417 274.25c-5.79-1.45-10.84-5-14.15-9.97l-17.98-26.97a23.97 23.97 0 0 1 0-26.62l19.59-29.38c2.32-3.47 5.5-6.29 9.24-8.15l12.98-6.49C440.2 193.59 448 223.87 448 256c0 8.67-.74 17.16-1.82 25.54L417 274.25z"
+                                          class=""></path>
+                                </svg>
+                            </a>
+                        </li>
                         <?php
                     }
                     ?>
-                </ul>
-            </div>
-        <?php } ?>
-
+                    <?php if (!$uab_email_disable): ?>
+                        <li class="uab-icon-mail">
+                            <a href="mailto:<?php esc_attr_e(get_the_author_meta('email', $user_id)); ?>">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="envelope"
+                                     role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                                     class="svg-inline--fa fa-envelope fa-w-16">
+                                    <path fill="currentColor"
+                                          d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"
+                                          class=""></path>
+                                </svg>
+                            </a>
+                        </li>
+                    <?php endif; ?>
+                    <?php
+                }
+                ?>
+            </ul>
+        </div>
     <?php } ?>
+
+<?php } ?>
 </div>

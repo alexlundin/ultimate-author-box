@@ -1,6 +1,20 @@
+@media only screen and (max-width: 768px) {
+    /*tab responsive css start*/
+    
+    .uab-frontend-wrapper .uab-tabs {
+        width: 100%;
+    }
+    .uab-frontend-wrapper .uab-tabs a ,
+    .uab-frontend-wrapper .uab-tabs li {
+        float: none;
+        display: block;
+        width: 100%;
+    }
+
+}
 @media only screen and (max-width: 640px) {
     /*template-1*/
-
+    
     .uab-template-1 .uab-social-icons {
         padding-left: 0;
     }
