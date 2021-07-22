@@ -4,7 +4,7 @@ defined('ABSPATH') or die('No script kiddies please!');
   Plugin Name: Ultimate Author Box Lite by Alex Lundin
   Plugin URI: https://alexlundin.com/wp-update-server?action=get_metadata&slug=ultimate-author-box
   Description: Ultimate Author Box is a plugin that allows you to add additional information about the author in your Post, Page Custom Post Type as a default option or through use of shortcode and widgets.
-  Version: 2.1.3
+  Version: 2.14
   Author: Alex Lundin
   Author URI: https://alexlundin.com
   License: GPL2 or later
