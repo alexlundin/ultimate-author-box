@@ -10,7 +10,7 @@
 			if(!empty($uab_profile_data[0]['uab_upload_image_url'])){
 				?>
 				<!--Custom Image-->
-				<img src="<?php esc_attr_e($uab_profile_data[0]['uab_upload_image_url']);?>" width="200" alt="<?php esc_html_e(the_author_meta('display_name', $user_id)); ?>">
+				<img src="<?php esc_attr_e($uab_profile_data[0]['uab_upload_image_url']);?>" width="200" alt="Autor Photo">
 				<?php
 			}
 			else{
